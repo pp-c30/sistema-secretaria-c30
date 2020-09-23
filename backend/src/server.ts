@@ -22,6 +22,7 @@ export class Server{
 
     routes()
     {
+        this.app.use(enrutadorPrincipal);
     }
 
     middleware()
@@ -33,6 +34,6 @@ export class Server{
     async listen()
     {
         await this.app.listen(3000);
-        console.log('Corriendo servidor en el puerto', this.app.get('port'));
+        console.log('Corre el puerto', this.app.get('port'));
     }
 }
