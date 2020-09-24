@@ -1,0 +1,22 @@
+export interface IDocente{
+    id_docente?:number;
+    nombre:Date;
+    apellido:Date;
+    fecha_nacimiento:string;
+    legajo:number;
+    legajo_recibo:string;
+    dni:string;
+    cuit:number;
+    telefono:string;
+    correo:string;
+    domicilio:string;
+    nacionalidad:Date;
+    sexo:Date;
+    lugar_de_nacimiento:string;
+    fecha_ingreso_adm:string;
+    estado_civil:Date;
+    conyuge:Date;
+    cuil_conyuge:string;
+    fecha_n_conyuge:string;
+    familiar_acargo:string;
+}
