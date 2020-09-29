@@ -6,6 +6,32 @@ import { ILicencias } from "../models/licencias";
 
 export class LicenciasControllers
 {
+    public async listaLicencias(req:Request,res:Response)
+    {
+        //conecto con la base
+        const con = await conexion();
+
+        let licencias = await con.query('select * from licencias');
+
+        return res.json(licencias[0]);
+
+    }
+
+    public async crearLicencias(req:Request,res:Response){
+
+        //recibo datos mediante el metodo post
+    
+        let licencias:ILicencias = req.body;
+    
+        const con = await conexion();
+    
+        await con.query('insert into licencia set ?',[licencias]);
+        
+        return res.json('La licencia se inserto correctamente');
+    
+        }
+
+
 public async eliminarLicencias(req:Request,res:Response)
     {
         //recibimos el parametro ID a traves del metodo DELETE
