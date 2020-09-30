@@ -12,11 +12,29 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DocenteController = void 0;
 const database_1 = require("../database");
 class DocenteController {
+    listaDocente(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //conecto con la base
+            const con = yield database_1.conexion();
+            let docente = yield con.query('select * from docente');
+            return res.json(docente[0]);
+        });
+    }
+    crearDocente(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //recibo datos mediante el metodo post
+            let docente = req.body;
+            const con = yield database_1.conexion();
+            yield con.query('insert into docente set ?', [docente]);
+            return res.json('El docente se ingreso correctamente');
+        });
+    }
     eliminarDocente(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            //recibimos el parametro ID a traves del metodo DELETE
             let id_docente = req.params.id;
-            let lean = yield database_1.conexion();
-            yield lean.query('delete from docente where id_docente = ?', id_docente);
+            let con = yield database_1.conexion();
+            yield con.query('delete from docente where id_docente = ?', id_docente);
             return res.json('Se elimino el docente');
         });
     }
