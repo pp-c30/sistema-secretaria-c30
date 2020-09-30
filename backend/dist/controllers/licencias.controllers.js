@@ -25,7 +25,7 @@ class LicenciasControllers {
             //recibo datos mediante el metodo post
             let licencias = req.body;
             const con = yield database_1.conexion();
-            yield con.query('insert into licencia set ?', [licencias]);
+            yield con.query('insert into licencias set ?', [licencias]);
             return res.json('La licencia se inserto correctamente');
         });
     }

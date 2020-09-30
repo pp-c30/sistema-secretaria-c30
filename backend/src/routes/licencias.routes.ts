@@ -16,4 +16,4 @@ enrutadorLicencias.route('/licencias/:id').delete(licenciasControllers.eliminarL
 
 
 
-export default enrutadorPagos;
+export default enrutadorLicencias;

@@ -25,7 +25,7 @@ export class LicenciasControllers
     
         const con = await conexion();
     
-        await con.query('insert into licencia set ?',[licencias]);
+        await con.query('insert into licencias set ?',[licencias]);
         
         return res.json('La licencia se inserto correctamente');
     
