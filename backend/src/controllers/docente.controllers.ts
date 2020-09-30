@@ -2,7 +2,7 @@ import { Response,Request } from "express";
 
 import { conexion } from "../database";
 
-import { IDocente} from "../models/docente";
+import { IDocente } from '../models/docente';
 
 export class DocenteController
 
@@ -31,9 +31,26 @@ export class DocenteController
         return res.json('El docente se ingreso correctamente');
     
         }
+     
 
 
 
+
+
+
+        public async actualizarDocente(req:Request, res:Response){
+            //metodo UPDATE
+
+            let id_docente = req.params.id;
+
+            let IDocente = req.body;
+
+            let con = await conexion();
+
+            await con.query('update docente set ? where id_docente= ?', [IDocente, id_docente]);
+
+            return res.json('El docente se a actualizado exitosamente');
+        }
 
     public async eliminarDocente(req:Request,res:Response)
     {
