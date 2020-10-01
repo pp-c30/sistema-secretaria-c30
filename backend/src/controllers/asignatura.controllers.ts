@@ -5,7 +5,19 @@ import { IAsignatura } from '../models/asignatura';
 export class AsignaturaController
 {
 
+    public async crearAsignatura(req:Request, res:Response)
+{
+    //recibo los datos enviados
+    let asignatura:IAsignatura = req.body;
 
+    //conecto con la base de datos
+    const lean = await conexion();
+
+    //realizo el INSERT de la asignatura
+    await lean.query('insert into asignatura set ?', [asignatura]);
+
+    return res.json('la asignatura fue creada');
+}
 
     public async actualizarAsignatura(req:Request, res:Response){
         //metodo UPDATE
@@ -34,17 +46,5 @@ export class AsignaturaController
         return res.json('Se elimino la asignatura');
     }
 
-public async crearAsignatura(req:Request, res:Response)
-{
-    //recibo los datos enviados
-    let asignatura:IAsignatura = req.body;
 
-    //conecto con la base de datos
-    const lean = await conexion();
-
-    //realizo el INSERT de la asignatura
-    await lean.query('insert into asignatura set ?', [asignatura]);
-
-    return res.json('la asignatura fue creada');
-}
 }

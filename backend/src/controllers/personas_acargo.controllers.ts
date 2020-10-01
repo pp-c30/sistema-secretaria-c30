@@ -7,7 +7,19 @@ export class Personas_acargoController
 
 
 
-
+    public async crearPersonas_acargo(req:Request, res:Response)
+    {
+        //recibo los datos enviados
+        let personas_acargo:IPersonas_acargo = req.body;
+    
+        //conecto con la base de datos
+        const lean = await conexion();
+    
+        //realizo el INSERT de la persona a cargoS
+        await lean.query('insert into personas_acargo set ?', [personas_acargo]);
+    
+        return res.json('El cargo fue creado');
+    }
 
     public async actualizarPersonas_acargo(req:Request, res:Response){
         //metodo UPDATE
@@ -35,17 +47,5 @@ export class Personas_acargoController
 
         return res.json('Se elimino la persona a cargo');
     }
-    public async crearPersonas_acargo(req:Request, res:Response)
-{
-    //recibo los datos enviados
-    let personas_acargo:IPersonas_acargo = req.body;
 
-    //conecto con la base de datos
-    const lean = await conexion();
-
-    //realizo el INSERT de la persona a cargoS
-    await lean.query('insert into personas_acargo set ?', [personas_acargo]);
-
-    return res.json('El cargo fue creado');
-}
 }
