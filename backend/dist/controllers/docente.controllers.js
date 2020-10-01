@@ -9,37 +9,34 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LicenciasControllers = void 0;
+exports.DocenteController = void 0;
 const database_1 = require("../database");
-class LicenciasControllers {
-<<<<<<< HEAD
-=======
-    listaLicencias(req, res) {
+class DocenteController {
+    listaDocente(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             //conecto con la base
             const con = yield database_1.conexion();
-            let licencias = yield con.query('select * from licencias');
-            return res.json(licencias[0]);
+            let docente = yield con.query('select * from docente');
+            return res.json(docente[0]);
         });
     }
-    crearLicencias(req, res) {
+    crearDocente(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             //recibo datos mediante el metodo post
-            let licencias = req.body;
+            let docente = req.body;
             const con = yield database_1.conexion();
-            yield con.query('insert into licencias set ?', [licencias]);
-            return res.json('La licencia se inserto correctamente');
+            yield con.query('insert into docente set ?', [docente]);
+            return res.json('El docente se ingreso correctamente');
         });
     }
->>>>>>> 140c847438a46502a7769137a1bde14c53bebec9
-    eliminarLicencias(req, res) {
+    eliminarDocente(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             //recibimos el parametro ID a traves del metodo DELETE
-            let id_licencia = req.params.id;
+            let id_docente = req.params.id;
             let con = yield database_1.conexion();
-            yield con.query('delete from licencia where id_licencia = ?', id_licencia);
-            return res.json('La licencia se ha eliminado exitosamente');
+            yield con.query('delete from docente where id_docente = ?', id_docente);
+            return res.json('Se elimino el docente');
         });
     }
 }
-exports.LicenciasControllers = LicenciasControllers;
+exports.DocenteController = DocenteController;

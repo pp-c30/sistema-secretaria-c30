@@ -8,6 +8,12 @@ let licenciasControllers = new LicenciasControllers();
 
 //creacion de rutas
 
-enrutadorLicencias.route('/lecencias/:id').delete(licenciasControllers.eliminarLicencias);
+enrutadorLicencias.route('/licencias').get(licenciasControllers.listaLicencias);
 
-export default enrutadorPagos;
+enrutadorLicencias.route('/licencias').post(licenciasControllers.crearLicencias);
+
+enrutadorLicencias.route('/licencias/:id').delete(licenciasControllers.eliminarLicencias);
+
+
+
+export default enrutadorLicencias;

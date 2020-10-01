@@ -1,5 +1,8 @@
 import express, {Application} from 'express';
+
 import enrutadorPrincipal from "./routes/index.routes";
+
+import enrutadorLicencias from "./routes/licencias.routes";
 
 export class Server{
 
@@ -22,6 +25,7 @@ export class Server{
 
     routes()
     {
+        this.app.use(enrutadorLicencias);
         this.app.use(enrutadorPrincipal);
     }
 

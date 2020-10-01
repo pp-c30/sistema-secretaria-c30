@@ -5,4 +5,6 @@ const enrutadorDesignacion = Router();
 
 let designacionController = new DesignacionController();
 
+enrutadorDesignacion.route('/designacion/:id').put(designacionController.actualizarDesignacion);
+
 enrutadorDesignacion.route('/designacion/:id').delete(designacionController.eliminarDesignacion);
