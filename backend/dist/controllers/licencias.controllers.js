@@ -12,6 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LicenciasControllers = void 0;
 const database_1 = require("../database");
 class LicenciasControllers {
+<<<<<<< HEAD
+=======
     listaLicencias(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             //conecto con la base
@@ -29,6 +31,7 @@ class LicenciasControllers {
             return res.json('La licencia se inserto correctamente');
         });
     }
+>>>>>>> 140c847438a46502a7769137a1bde14c53bebec9
     eliminarLicencias(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             //recibimos el parametro ID a traves del metodo DELETE

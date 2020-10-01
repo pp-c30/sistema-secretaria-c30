@@ -43,4 +43,19 @@ public async eliminarLicencias(req:Request,res:Response)
 
         return res.json('La licencia se ha eliminado exitosamente');
     }
+    public async actualizarLicencia(req:Request,res:Response)
+    {
+         //recibo el parametro ID de la licencia que voy a actualizar
+        let id_licencia = req.params.id;
+
+        //recibo un JSON con los nuevos datos actualizados
+        let licencia = req.body;
+
+        //conecto con la base de datos
+        let lean = await conexion();
+
+        await lean.query('update licencia set ? where id_licencia = ? ', [licencia,id_licencia]);
+
+        return res.json('la licencia fue actualizada');
+    }
 }

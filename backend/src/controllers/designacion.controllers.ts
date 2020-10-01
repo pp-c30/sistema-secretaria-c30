@@ -33,4 +33,17 @@ export class DesignacionController
 
         return res.json('Se elimino la designacion del docente');
     }
+    public async crearDesignacion(req:Request, res:Response)
+{
+    //recibo los datos enviados
+    let designacion:IDesignacion = req.body;
+
+    //conecto con la base de datos
+    const lean = await conexion();
+
+    //realizo el INSERT de la designatura
+    await lean.query('insert into designatura set ?', [designacion]);
+
+    return res.json('la designatura fue creada');
+}
 }

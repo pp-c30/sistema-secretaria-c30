@@ -1,4 +1,6 @@
-export interface IDesignacion{
+export interface IDesignacion
+
+{
     id_designacion:number;
     id_docente?:number;
     id_asignatura?:string;
