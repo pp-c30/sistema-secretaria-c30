@@ -3,6 +3,6 @@ export interface IPersonas_acargo {
     nombre:string;
     apelido:string;
     dni:string;
-    fecha_nacimiento:string;
+    fecha_nacimiento:Date;
     familiar_acargo:string;
 }
