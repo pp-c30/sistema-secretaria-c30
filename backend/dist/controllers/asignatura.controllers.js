@@ -12,6 +12,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AsignaturaController = void 0;
 const database_1 = require("../database");
 class AsignaturaController {
+    crearAsignatura(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //recibo los datos enviados
+            let asignatura = req.body;
+            //conecto con la base de datos
+            const lean = yield database_1.conexion();
+            //realizo el INSERT de la asignatura
+            yield lean.query('insert into asignatura set ?', [asignatura]);
+            return res.json('la asignatura fue creada');
+        });
+    }
+    actualizarAsignatura(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //metodo UPDATE
+            let id_asigatura = req.params.id;
+            let IAsignatura = req.body;
+            let con = yield database_1.conexion();
+            yield con.query('update asignatura set ? where id_asignatura= ?', [IAsignatura, id_asigatura]);
+            return res.json('La asignatura se a actualizado exitosamente');
+        });
+    }
     eliminarAsignatura(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let id_asignatura = req.params.id;

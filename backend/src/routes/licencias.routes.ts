@@ -14,6 +14,9 @@ enrutadorLicencias.route('/licencias').post(licenciasControllers.crearLicencias)
 
 enrutadorLicencias.route('/licencias/:id').delete(licenciasControllers.eliminarLicencias);
 
-enrutadorLicencias.route('/licencias/:id').put(licenciasControllers.actualizarLicencia)
+enrutadorLicencias.route('/licencias/:id').put(licenciasControllers.actualizarLicencia);
+
+enrutadorLicencias.route('/licencias/:id').get(licenciasControllers.obtenerLicencia);
+
 
 export default enrutadorLicencias;

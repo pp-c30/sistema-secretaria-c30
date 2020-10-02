@@ -38,5 +38,27 @@ class DocenteController {
             return res.json('Se elimino el docente');
         });
     }
+    actualizarDocente(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //metodo UPDATE
+            let id_docente = req.params.id;
+            let docente = req.body;
+            let con = yield database_1.conexion();
+            yield con.query('update docente set ? where id_docente= ?', [docente, id_docente]);
+            return res.json('El docente se a actualizado exitosamente');
+        });
+    }
+    obtenerDocente(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //recibo ID para buscar un docente
+            let id_docente = req.params.id;
+            //nos conectamos a la base de datos
+            let con = yield database_1.conexion();
+            //busco un pogo de la tabla  a trves de un ID
+            let docente = yield con.query('select * from pago where id_docente = ?', [id_docente]);
+            //muestro el pago encontrado
+            return res.json(docente[0]);
+        });
+    }
 }
 exports.DocenteController = DocenteController;

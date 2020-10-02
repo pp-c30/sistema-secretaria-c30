@@ -7,4 +7,6 @@ let docenteController = new docente_controllers_1.DocenteController();
 enrutadorDocente.route('/docente').get(docenteController.listaDocente);
 enrutadorDocente.route('/docente').post(docenteController.crearDocente);
 enrutadorDocente.route('/docente/:id').delete(docenteController.eliminarDocente);
+enrutadorDocente.route('/docente/:id').put(docenteController.actualizarDocente);
+enrutadorDocente.route('/docente/:id').get(docenteController.obtenerDocente);
 exports.default = enrutadorDocente;

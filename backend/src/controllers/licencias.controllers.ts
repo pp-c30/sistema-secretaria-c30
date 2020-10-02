@@ -52,10 +52,25 @@ public async eliminarLicencias(req:Request,res:Response)
         let licencia = req.body;
 
         //conecto con la base de datos
-        let lean = await conexion();
+        let con = await conexion();
 
-        await lean.query('update licencia set ? where id_licencia = ? ', [licencia,id_licencia]);
+        await con.query('update licencia set ? where id_licencia = ? ', [licencia,id_licencia]);
 
         return res.json('la licencia fue actualizada');
+    }
+
+    public async obtenerLicencia(req:Request,res:Response)
+    {
+        //recibo ID para buscar un docente
+        let id_licencia = req.params.id;
+
+        //nos conectamos a la base de datos
+        let con = await conexion();
+
+        //busco un pogo de la tabla  a trves de un ID
+        let licencia = await con.query('select * from pago where id_licencia = ?' ,[id_licencia]);
+
+        //muestro el pago encontrado
+        return res.json(licencia[0]);
     }
 }

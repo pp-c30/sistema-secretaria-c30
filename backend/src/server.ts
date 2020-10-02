@@ -4,6 +4,8 @@ import enrutadorPrincipal from "./routes/index.routes";
 
 import enrutadorLicencias from "./routes/licencias.routes";
 
+import enrutadorDocentes from "./routes/docente.routes";
+
 export class Server{
 
     app:Application;
@@ -25,6 +27,7 @@ export class Server{
 
     routes()
     {
+        this.app.use(enrutadorDocentes);
         this.app.use(enrutadorLicencias);
         this.app.use(enrutadorPrincipal);
     }

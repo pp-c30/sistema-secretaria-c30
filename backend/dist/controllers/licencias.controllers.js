@@ -12,8 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LicenciasControllers = void 0;
 const database_1 = require("../database");
 class LicenciasControllers {
-<<<<<<< HEAD
-=======
     listaLicencias(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             //conecto con la base
@@ -31,7 +29,6 @@ class LicenciasControllers {
             return res.json('La licencia se inserto correctamente');
         });
     }
->>>>>>> 140c847438a46502a7769137a1bde14c53bebec9
     eliminarLicencias(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             //recibimos el parametro ID a traves del metodo DELETE
@@ -39,6 +36,30 @@ class LicenciasControllers {
             let con = yield database_1.conexion();
             yield con.query('delete from licencia where id_licencia = ?', id_licencia);
             return res.json('La licencia se ha eliminado exitosamente');
+        });
+    }
+    actualizarLicencia(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //recibo el parametro ID de la licencia que voy a actualizar
+            let id_licencia = req.params.id;
+            //recibo un JSON con los nuevos datos actualizados
+            let licencia = req.body;
+            //conecto con la base de datos
+            let con = yield database_1.conexion();
+            yield con.query('update licencia set ? where id_licencia = ? ', [licencia, id_licencia]);
+            return res.json('la licencia fue actualizada');
+        });
+    }
+    obtenerLicencia(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //recibo ID para buscar un docente
+            let id_licencia = req.params.id;
+            //nos conectamos a la base de datos
+            let con = yield database_1.conexion();
+            //busco un pogo de la tabla  a trves de un ID
+            let licencia = yield con.query('select * from pago where id_licencia = ?', [id_licencia]);
+            //muestro el pago encontrado
+            return res.json(licencia[0]);
         });
     }
 }

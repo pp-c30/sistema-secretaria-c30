@@ -4,4 +4,6 @@ const express_1 = require("express");
 const personas_acargo_controllers_1 = require("../controllers/personas_acargo.controllers");
 const enrutadorPersonas_acargo = express_1.Router();
 let personas_acargoController = new personas_acargo_controllers_1.Personas_acargoController();
+enrutadorPersonas_acargo.route('/personas_acargo/:id').put(personas_acargoController.actualizarPersonas_acargo);
 enrutadorPersonas_acargo.route('/personas_acargo/:id').delete(personas_acargoController.eliminarPersonas_acargo);
+enrutadorPersonas_acargo.route('/personas_acargo').post(personas_acargoController.crearPersonas_acargo);

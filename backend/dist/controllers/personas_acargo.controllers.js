@@ -12,6 +12,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Personas_acargoController = void 0;
 const database_1 = require("../database");
 class Personas_acargoController {
+    crearPersonas_acargo(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //recibo los datos enviados
+            let personas_acargo = req.body;
+            //conecto con la base de datos
+            const lean = yield database_1.conexion();
+            //realizo el INSERT de la persona a cargoS
+            yield lean.query('insert into personas_acargo set ?', [personas_acargo]);
+            return res.json('El cargo fue creado');
+        });
+    }
+    actualizarPersonas_acargo(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //metodo UPDATE
+            let id_pc = req.params.id;
+            let IPersonas_acargo = req.body;
+            let con = yield database_1.conexion();
+            yield con.query('update personas_acargo set ? where id_docente= ?', [IPersonas_acargo, id_pc]);
+            return res.json('Las personas a cargo se actualizo exitosamente');
+        });
+    }
     eliminarPersonas_acargo(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let id_pc = req.params.id;

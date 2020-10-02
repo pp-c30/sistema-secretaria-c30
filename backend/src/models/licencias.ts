@@ -10,7 +10,7 @@ export interface ILicencias
 
     id_docente_suplente: number;
 
-    n_resolucion:string;
+    n_resolucion:number;
 
     fecha_alta_suplente: Date;
 

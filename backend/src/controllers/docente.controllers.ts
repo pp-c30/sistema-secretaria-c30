@@ -31,37 +31,46 @@ export class DocenteController
         return res.json('El docente se ingreso correctamente');
     
         }
-     
-
-
-
-
-
+        public async eliminarDocente(req:Request,res:Response)
+        {
+            //recibimos el parametro ID a traves del metodo DELETE
+            
+            let id_docente = req.params.id;
+    
+            let con = await conexion();
+    
+            await con.query('delete from docente where id_docente = ?',id_docente);
+    
+            return res.json('Se elimino el docente');
+        }
 
         public async actualizarDocente(req:Request, res:Response){
             //metodo UPDATE
 
             let id_docente = req.params.id;
 
-            let IDocente = req.body;
+            let docente = req.body;
 
             let con = await conexion();
 
-            await con.query('update docente set ? where id_docente= ?', [IDocente, id_docente]);
+            await con.query('update docente set ? where id_docente= ?', [docente, id_docente]);
 
             return res.json('El docente se a actualizado exitosamente');
         }
 
-    public async eliminarDocente(req:Request,res:Response)
-    {
-        //recibimos el parametro ID a traves del metodo DELETE
-        
-        let id_docente = req.params.id;
+        public async obtenerDocente(req:Request,res:Response)
+        {
+            //recibo ID para buscar un docente
+            let id_docente = req.params.id;
+    
+            //nos conectamos a la base de datos
+            let con = await conexion();
+    
+            //busco un pogo de la tabla  a trves de un ID
+            let docente = await con.query('select * from pago where id_docente = ?' ,[id_docente]);
+    
+            //muestro el pago encontrado
+            return res.json(docente[0]);
+        }
 
-        let con = await conexion();
-
-        await con.query('delete from docente where id_docente = ?',id_docente);
-
-        return res.json('Se elimino el docente');
-    }
 }

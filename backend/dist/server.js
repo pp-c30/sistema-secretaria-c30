@@ -16,6 +16,7 @@ exports.Server = void 0;
 const express_1 = __importDefault(require("express"));
 const index_routes_1 = __importDefault(require("./routes/index.routes"));
 const licencias_routes_1 = __importDefault(require("./routes/licencias.routes"));
+const docente_routes_1 = __importDefault(require("./routes/docente.routes"));
 class Server {
     constructor() {
         //app va almacenar todas las funcionalidades de express__ al iniciar el server
@@ -28,6 +29,7 @@ class Server {
         this.app.set('port', process.env.port || 3000);
     }
     routes() {
+        this.app.use(docente_routes_1.default);
         this.app.use(licencias_routes_1.default);
         this.app.use(index_routes_1.default);
     }
