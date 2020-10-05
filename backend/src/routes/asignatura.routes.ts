@@ -14,3 +14,5 @@ enrutadorAsignatura.route('/asignatura').post(asignaturaController.crearAsignatu
 enrutadorAsignatura.route('/asignatura').get(asignaturaController.listaAsignatura);
 
 enrutadorAsignatura.route('/asignatura/:id').get(asignaturaController.obtenerAsignatura);
+
+export default enrutadorPersonas_acargo;

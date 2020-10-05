@@ -14,3 +14,5 @@ enrutadorPersonas_acargo.route('/personas_acargo').post(personas_acargoControlle
 enrutadorPersonas_acargo.route('/personas_acargo').get(personas_acargoController.listaPersonas_acargo);
 
 enrutadorPersonas_acargo.route('/personas_acargo/:id').get(personas_acargoController.obtenerPersonas_acargo);
+
+export default enrutadorPersonas_acargo;

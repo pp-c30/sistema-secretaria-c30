@@ -10,6 +10,10 @@ import enrutadorProvincia from "./routes/provincia.routes";
 
 import enrutadorLocalidad from "./routes/localidad.routes";
 
+import enrutadorPersonas_acargo from "./routes/personas_acargo.routes";
+
+import enrutadorAsignatura from "./routes/asignatura.routes";
+
 
 export class Server{
 
@@ -37,6 +41,8 @@ export class Server{
         this.app.use(enrutadorPrincipal);
         this.app.use(enrutadorLocalidad);
         this.app.use(enrutadorProvincia);
+        this.app.use(enrutadorPersonas_acargo);
+        this.app.use(enrutadorAsignatura);
 
     }
 
