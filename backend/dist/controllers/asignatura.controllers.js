@@ -41,5 +41,24 @@ class AsignaturaController {
             return res.json('Se elimino la asignatura');
         });
     }
+    listaAsignatura(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //conecto con la base
+            const lean = yield database_1.conexion();
+            let asignatura = yield lean.query('select * from asignatura');
+            return res.json(asignatura[0]);
+        });
+    }
+    obtenerAsignatura(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //recibo ID para buscar una asignatura
+            let id_asignatura = req.params.id;
+            //nos conectamos a la base de datos
+            let lean = yield database_1.conexion();
+            //busco un pogo de la tabla  a traves de un ID
+            let asignatura = yield lean.query('select * from asignatura where id_asignatura = ?', [id_asignatura]);
+            return res.json(asignatura[0]);
+        });
+    }
 }
 exports.AsignaturaController = AsignaturaController;

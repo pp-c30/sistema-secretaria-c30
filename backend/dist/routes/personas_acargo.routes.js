@@ -7,3 +7,6 @@ let personas_acargoController = new personas_acargo_controllers_1.Personas_acarg
 enrutadorPersonas_acargo.route('/personas_acargo/:id').put(personas_acargoController.actualizarPersonas_acargo);
 enrutadorPersonas_acargo.route('/personas_acargo/:id').delete(personas_acargoController.eliminarPersonas_acargo);
 enrutadorPersonas_acargo.route('/personas_acargo').post(personas_acargoController.crearPersonas_acargo);
+enrutadorPersonas_acargo.route('/personas_acargo').get(personas_acargoController.listaPersonas_acargo);
+enrutadorPersonas_acargo.route('/personas_acargo/:id').get(personas_acargoController.obtenerPersonas_acargo);
+exports.default = enrutadorPersonas_acargo;

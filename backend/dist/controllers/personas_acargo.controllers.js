@@ -41,5 +41,24 @@ class Personas_acargoController {
             return res.json('Se elimino la persona a cargo');
         });
     }
+    listaPersonas_acargo(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //conecto con la base
+            const lean = yield database_1.conexion();
+            let personas_acargo = yield lean.query('select * from personas_acargo');
+            return res.json(personas_acargo[0]);
+        });
+    }
+    obtenerPersonas_acargo(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //recibo ID para buscar una persona a cargo
+            let id_pc = req.params.id;
+            //nos conectamos a la base de datos
+            let lean = yield database_1.conexion();
+            //busco un pogo de la tabla  a traves de un ID
+            let personas_acargo = yield lean.query('select * from personas_acargo where id_pc = ?', [id_pc]);
+            return res.json(personas_acargo[0]);
+        });
+    }
 }
 exports.Personas_acargoController = Personas_acargoController;
