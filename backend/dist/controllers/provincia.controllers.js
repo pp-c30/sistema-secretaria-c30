@@ -20,5 +20,44 @@ class ProvinciaController {
             return res.json('Se elimino la provincia');
         });
     }
+    listaProvincia(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //conecto con la base
+            const lean = yield database_1.conexion();
+            let provincia = yield lean.query('select * from provincia');
+            return res.json(provincia[0]);
+        });
+    }
+    crearProvincia(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //recibo datos mediante el metodo post
+            let provincia = req.body;
+            const lean = yield database_1.conexion();
+            yield lean.query('insert into provincia set ?', [provincia]);
+            return res.json('La provincia se ingreso correctamente');
+        });
+    }
+    actualizarProvincia(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //metodo UPDATE
+            let id_provincia = req.params.id;
+            let provincia = req.body;
+            let lean = yield database_1.conexion();
+            yield lean.query('update provincia set ? where id_provincia= ?', [provincia, id_provincia]);
+            return res.json('La provincia se a actualizado exitosamente');
+        });
+    }
+    obtenerProvincia(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //recibo ID para buscar un docente
+            let id_provincia = req.params.id;
+            //nos conectamos a la base de datos
+            let lean = yield database_1.conexion();
+            //busco un pogo de la tabla  a trves de un ID
+            let provincia = yield lean.query('select * from provincia where id_provincia = ?', [id_provincia]);
+            //muestro el pago encontrado
+            return res.json(provincia[0]);
+        });
+    }
 }
 exports.ProvinciaController = ProvinciaController;

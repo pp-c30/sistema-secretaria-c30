@@ -17,6 +17,8 @@ const express_1 = __importDefault(require("express"));
 const index_routes_1 = __importDefault(require("./routes/index.routes"));
 const licencias_routes_1 = __importDefault(require("./routes/licencias.routes"));
 const docente_routes_1 = __importDefault(require("./routes/docente.routes"));
+const provincia_routes_1 = __importDefault(require("./routes/provincia.routes"));
+const localidad_routes_1 = __importDefault(require("./routes/localidad.routes"));
 class Server {
     constructor() {
         //app va almacenar todas las funcionalidades de express__ al iniciar el server
@@ -32,6 +34,8 @@ class Server {
         this.app.use(docente_routes_1.default);
         this.app.use(licencias_routes_1.default);
         this.app.use(index_routes_1.default);
+        this.app.use(localidad_routes_1.default);
+        this.app.use(provincia_routes_1.default);
     }
     middleware() {
         //el servidor espera recibir los datos en formato json
