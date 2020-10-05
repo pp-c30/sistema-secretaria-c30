@@ -10,3 +10,7 @@ enrutadorPersonas_acargo.route('/personas_acargo/:id').put(personas_acargoContro
 enrutadorPersonas_acargo.route('/personas_acargo/:id').delete(personas_acargoController.eliminarPersonas_acargo);
 
 enrutadorPersonas_acargo.route('/personas_acargo').post(personas_acargoController.crearPersonas_acargo);
+
+enrutadorPersonas_acargo.route('/personas_acargo').get(personas_acargoController.listaPersonas_acargo);
+
+enrutadorPersonas_acargo.route('/personas_acargo/:id').get(personas_acargoController.obtenerPersonas_acargo);

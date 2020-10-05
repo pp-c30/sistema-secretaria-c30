@@ -47,5 +47,28 @@ export class Personas_acargoController
 
         return res.json('Se elimino la persona a cargo');
     }
+    public async listaPersonas_acargo(req:Request,res:Response)
+    {
+        //conecto con la base
+        const lean = await conexion();
+
+        let personas_acargo = await lean.query('select * from personas_acargo');
+
+        return res.json(personas_acargo[0]);
+
+    }
+    public async obtenerPersonas_acargo(req:Request,res:Response)
+    {
+        //recibo ID para buscar una persona a cargo
+        let id_pc = req.params.id;
+
+        //nos conectamos a la base de datos
+        let lean = await conexion();
+
+        //busco un pogo de la tabla  a traves de un ID
+        let personas_acargo = await lean.query('select * from personas_acargo where id_pc = ?' ,[id_pc]);
+
+        return res.json(personas_acargo[0]);
+    }
 
 }

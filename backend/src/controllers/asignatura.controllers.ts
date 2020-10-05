@@ -45,6 +45,29 @@ export class AsignaturaController
 
         return res.json('Se elimino la asignatura');
     }
+    public async listaAsignatura(req:Request,res:Response)
+    {
+        //conecto con la base
+        const lean = await conexion();
+
+        let asignatura = await lean.query('select * from asignatura');
+
+        return res.json(asignatura[0]);
+
+    }
+    public async obtenerAsignatura(req:Request,res:Response)
+    {
+        //recibo ID para buscar una asignatura
+        let id_asignatura = req.params.id;
+
+        //nos conectamos a la base de datos
+        let lean = await conexion();
+
+        //busco un pogo de la tabla  a traves de un ID
+        let asignatura = await lean.query('select * from asignatura where id_asignatura = ?' ,[id_asignatura]);
+
+        return res.json(asignatura[0]);
+    }
 
 
 }

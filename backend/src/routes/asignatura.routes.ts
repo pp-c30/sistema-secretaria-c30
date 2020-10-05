@@ -10,3 +10,7 @@ enrutadorAsignatura.route('/asignatura/:id').put(asignaturaController.actualizar
 enrutadorAsignatura.route('/asignatura/:id').delete(asignaturaController.eliminarAsignatura);
 
 enrutadorAsignatura.route('/asignatura').post(asignaturaController.crearAsignatura);
+
+enrutadorAsignatura.route('/asignatura').get(asignaturaController.listaAsignatura);
+
+enrutadorAsignatura.route('/asignatura/:id').get(asignaturaController.obtenerAsignatura);
