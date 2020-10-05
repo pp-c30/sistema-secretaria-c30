@@ -15,4 +15,4 @@ enrutadorAsignatura.route('/asignatura').get(asignaturaController.listaAsignatur
 
 enrutadorAsignatura.route('/asignatura/:id').get(asignaturaController.obtenerAsignatura);
 
-export default enrutadorPersonas_acargo;
+export default enrutadorAsignatura;
