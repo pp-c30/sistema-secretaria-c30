@@ -1,12 +1,51 @@
 import { Response,Request } from "express";
+
 import { conexion } from "../database";
+
 import { IDesignacion } from '../models/designacion';
+
 
 export class DesignacionController
 {
+    public async listaDesignacion(req:Request,res:Response)
+    {
+        //conecto con la base
+        const con = await conexion();
 
+        let designacion = await con.query('select * from designacion');
 
-    public async actualizarDesignacion(req:Request, res:Response){
+        return res.json(designacion[0]);
+
+    }
+
+    public async crearDesignacion(req:Request,res:Response){
+
+        //recibo datos mediante el metodo post
+    
+        let designacion:IDesignacion = req.body;
+    
+        const con = await conexion();
+    
+        await con.query('insert into designacion set ?',[designacion]);
+        
+        return res.json('La designacion se ingreso correctamente');
+    
+        }
+
+        public async eliminarDesignacion(req:Request,res:Response)
+        {
+            
+            let id_designacion = req.params.id;
+    
+            
+            let lean = await conexion();
+    
+            await lean.query('delete from designacion where id_designacion = ?',id_designacion);
+    
+            return res.json('Se elimino la designacion del docente');
+        }
+
+        public async actualizarDesignacion(req:Request, res:Response){
         //metodo UPDATE
 
         let id_designacion = req.params.id;
@@ -20,30 +59,21 @@ export class DesignacionController
         return res.json('La asignacion se a actualizado exitosamente');
     }
 
-
-    public async eliminarDesignacion(req:Request,res:Response)
+    public async obtenerDesignacion(req:Request,res:Response)
     {
-        
+        //recibo ID para buscar un docente
         let id_designacion = req.params.id;
 
-        
-        let lean = await conexion();
+        //nos conectamos a la base de datos
+        let con = await conexion();
 
-        await lean.query('delete from designacion where id_designacion = ?',id_designacion);
+        //busco una designacion de la tabla  a traves de un ID
+        let designacion = await con.query('select * from designacion where id_designacion = ?' ,[id_designacion]);
 
-        return res.json('Se elimino la designacion del docente');
+        //muestro el pago encontrado
+        return res.json(designacion[0]);
     }
-    public async crearDesignacion(req:Request, res:Response)
-{
-    //recibo los datos enviados
-    let designacion:IDesignacion = req.body;
 
-    //conecto con la base de datos
-    const lean = await conexion();
 
-    //realizo el INSERT de la designatura
-    await lean.query('insert into designatura set ?', [designacion]);
 
-    return res.json('la designatura fue creada');
-}
 }

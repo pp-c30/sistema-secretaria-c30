@@ -6,6 +6,8 @@ import enrutadorLicencias from "./routes/licencias.routes";
 
 import enrutadorDocentes from "./routes/docente.routes";
 
+import enrutadorDesignacion from "./routes/designacion.routes";
+
 import enrutadorProvincia from "./routes/provincia.routes";
 
 import enrutadorLocalidad from "./routes/localidad.routes";
@@ -37,6 +39,7 @@ export class Server{
     routes()
     {
         this.app.use(enrutadorDocentes);
+        this.app.use(enrutadorDesignacion);
         this.app.use(enrutadorLicencias);
         this.app.use(enrutadorPrincipal);
         this.app.use(enrutadorLocalidad);

@@ -17,6 +17,7 @@ const express_1 = __importDefault(require("express"));
 const index_routes_1 = __importDefault(require("./routes/index.routes"));
 const licencias_routes_1 = __importDefault(require("./routes/licencias.routes"));
 const docente_routes_1 = __importDefault(require("./routes/docente.routes"));
+const designacion_routes_1 = __importDefault(require("./routes/designacion.routes"));
 const provincia_routes_1 = __importDefault(require("./routes/provincia.routes"));
 const localidad_routes_1 = __importDefault(require("./routes/localidad.routes"));
 const personas_acargo_routes_1 = __importDefault(require("./routes/personas_acargo.routes"));
@@ -34,6 +35,7 @@ class Server {
     }
     routes() {
         this.app.use(docente_routes_1.default);
+        this.app.use(designacion_routes_1.default);
         this.app.use(licencias_routes_1.default);
         this.app.use(index_routes_1.default);
         this.app.use(localidad_routes_1.default);

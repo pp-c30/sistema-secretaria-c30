@@ -1,4 +1,5 @@
 import { Router } from "express";
+
 import { DocenteController } from "../controllers/docente.controllers";
 
 const enrutadorDocente = Router();

@@ -12,14 +12,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DesignacionController = void 0;
 const database_1 = require("../database");
 class DesignacionController {
-    actualizarDesignacion(req, res) {
+    listaDesignacion(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //metodo UPDATE
-            let id_designacion = req.params.id;
-            let IDesignacion = req.body;
-            let con = yield database_1.conexion();
-            yield con.query('update designacion set ? where id_designacion= ?', [IDesignacion, id_designacion]);
-            return res.json('La asignacion se a actualizado exitosamente');
+            //conecto con la base
+            const con = yield database_1.conexion();
+            let designacion = yield con.query('select * from designacion');
+            return res.json(designacion[0]);
+        });
+    }
+    crearDesignacion(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //recibo datos mediante el metodo post
+            let designacion = req.body;
+            const con = yield database_1.conexion();
+            yield con.query('insert into designacion set ?', [designacion]);
+            return res.json('La designacion se ingreso correctamente');
         });
     }
     eliminarDesignacion(req, res) {
@@ -30,15 +37,26 @@ class DesignacionController {
             return res.json('Se elimino la designacion del docente');
         });
     }
-    crearDesignacion(req, res) {
+    actualizarDesignacion(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //recibo los datos enviados
-            let designacion = req.body;
-            //conecto con la base de datos
-            const lean = yield database_1.conexion();
-            //realizo el INSERT de la designatura
-            yield lean.query('insert into designatura set ?', [designacion]);
-            return res.json('la designatura fue creada');
+            //metodo UPDATE
+            let id_designacion = req.params.id;
+            let IDesignacion = req.body;
+            let con = yield database_1.conexion();
+            yield con.query('update designacion set ? where id_designacion= ?', [IDesignacion, id_designacion]);
+            return res.json('La asignacion se a actualizado exitosamente');
+        });
+    }
+    obtenerDesignacion(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //recibo ID para buscar un docente
+            let id_designacion = req.params.id;
+            //nos conectamos a la base de datos
+            let con = yield database_1.conexion();
+            //busco una designacion de la tabla  a traves de un ID
+            let designacion = yield con.query('select * from designacion where id_designacion = ?', [id_designacion]);
+            //muestro el pago encontrado
+            return res.json(designacion[0]);
         });
     }
 }
