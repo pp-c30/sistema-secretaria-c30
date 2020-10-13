@@ -55,8 +55,8 @@ class DocenteController {
             //nos conectamos a la base de datos
             let con = yield database_1.conexion();
             //busco un pogo de la tabla  a trves de un ID
-            let docente = yield con.query('select * from pago where id_docente = ?', [id_docente]);
-            //muestro el pago encontrado
+            let docente = yield con.query('select * from docente where id_docente = ?', [id_docente]);
+            //muestro el docente encontrado
             return res.json(docente[0]);
         });
     }

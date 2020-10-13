@@ -67,9 +67,9 @@ export class DocenteController
             let con = await conexion();
     
             //busco un pogo de la tabla  a trves de un ID
-            let docente = await con.query('select * from pago where id_docente = ?' ,[id_docente]);
+            let docente = await con.query('select * from docente where id_docente = ?' ,[id_docente]);
     
-            //muestro el pago encontrado
+            //muestro el docente encontrado
             return res.json(docente[0]);
         }
 

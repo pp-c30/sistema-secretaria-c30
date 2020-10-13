@@ -31,12 +31,12 @@ export interface IDocente{
 
     estado_civil:string;
 
-    conyuge:string;
+    conyuge?:string;
 
-    cuil_conyuge:number;
+    cuil_conyuge?:number;
 
-    fecha_n_conyuge:Date;
+    fecha_n_conyuge?:Date;
 
-    familiar_acargo:string;
+    familiar_acargo?:string;
 
 }
