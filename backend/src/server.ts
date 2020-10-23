@@ -16,6 +16,8 @@ import enrutadorPersonas_acargo from "./routes/personas_acargo.routes";
 
 import enrutadorAsignatura from "./routes/asignatura.routes";
 
+import cors from "cors";
+
 
 export class Server{
 
@@ -53,6 +55,7 @@ export class Server{
     {
         //el servidor espera recibir los datos en formato json
         this.app.use(express.json());
+        this.app.use(cors());
     }
 
     async listen()

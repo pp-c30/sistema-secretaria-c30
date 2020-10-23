@@ -22,6 +22,7 @@ const provincia_routes_1 = __importDefault(require("./routes/provincia.routes"))
 const localidad_routes_1 = __importDefault(require("./routes/localidad.routes"));
 const personas_acargo_routes_1 = __importDefault(require("./routes/personas_acargo.routes"));
 const asignatura_routes_1 = __importDefault(require("./routes/asignatura.routes"));
+const cors_1 = __importDefault(require("cors"));
 class Server {
     constructor() {
         //app va almacenar todas las funcionalidades de express__ al iniciar el server
@@ -46,6 +47,7 @@ class Server {
     middleware() {
         //el servidor espera recibir los datos en formato json
         this.app.use(express_1.default.json());
+        this.app.use(cors_1.default());
     }
     listen() {
         return __awaiter(this, void 0, void 0, function* () {
