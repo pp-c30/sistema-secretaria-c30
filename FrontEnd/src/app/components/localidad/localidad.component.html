@@ -1,0 +1,24 @@
+<div class="row">
+
+    <div class="col-sm-8">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Descripcion</th>
+                    <th>Provincia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let localidad of ListarLocalidad">
+
+                    <td>{{localidad.descripcion}}</td>
+
+                    <td>{{localidad.id_provincias}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
