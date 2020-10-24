@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DocenteService } from "../../services/docente.service";
+
+import { IDocente } from "src/app/models/Docente";
+
 @Component({
   selector: 'app-docente',
   templateUrl: './docente.component.html',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocenteComponent implements OnInit {
 
-  constructor() { }
+  ListarDocente:IDocente[] = [];
 
-  ngOnInit(): void {
+  constructor(private docenteServ:DocenteService) { }
+
+  ngOnInit(): void
+  {
+
+    this.obtenerDocente();
+
+  }
+
+  obtenerDocente()
+  {
+    this.docenteServ.getDocente().subscribe(
+      resultado => this.ListarDocente = resultado,
+      error => console.log(error))
   }
 
 }

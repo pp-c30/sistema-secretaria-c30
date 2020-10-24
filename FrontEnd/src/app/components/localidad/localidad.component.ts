@@ -29,8 +29,7 @@ export class LocalidadComponent implements OnInit {
 {
   this.localidadServ.getLocalidad().subscribe(
     resultado => this.ListarLocalidad = resultado,
-    error => console.log(error)
-  )
+    error => console.log(error))
 }
 
 }

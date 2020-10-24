@@ -1,1 +1,75 @@
-<p>docente works!</p>
+<div class="jumbotron">
+    <h1 class="display-3">Docentes</h1>
+    <hr class="my-4">
+  </div>
+
+<div class="row">
+    <div class="col-sm-1">
+        <table class="table table-Primary">
+            <thead>
+                <tr class="table-primary">
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Legajo</th>
+                    <th>Legajo Recibo</th>
+                    <th>DNI</th>
+                    <th>CUIT</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th>Nacionalidad</th>
+                    <th>Sexo</th>
+                    <th>Lugar de nacimiento</th>
+                    <th>Fecha de Ingreso adm</th>
+                    <th>Estado Civil</th>
+                    <th>Conyuge</th>
+                    <th>Cuil de Conyuge</th>
+                    <th>Fecha de nacimiento Conyuge</th>
+                    <th>Familiar a cargo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let docente of ListarDocente">
+
+                    <td>{{docente.nombre}}</td>
+
+                    <td>{{docente.apellido}}</td>
+
+                    <td>{{docente.fecha_nacimiento}}</td>
+
+                    <td>{{docente.legajo}}</td>
+
+                    <td>{{docente.legajo_recibo}}</td>
+
+                    <td>{{docente.dni}}</td>
+
+                    <td>{{docente.cuit}}</td>
+
+                    <td>{{docente.telefono}}</td>
+
+                    <td>{{docente.correo}}</td>
+
+                    <td>{{docente.domicilio}}</td>
+
+                    <td>{{docente.nacionalidad}}</td>
+
+                    <td>{{docente.sexo}}</td>
+
+                    <td>{{docente.lugar_de_nacimiento}}</td>
+
+                    <td>{{docente.fecha_ingreso_adm}}</td>
+
+                    <td>{{docente.estado_civil}}</td>
+
+                    <td>{{docente.conyuge}}</td>
+
+                    <td>{{docente.fecha_n_conyuge}}</td>
+
+                    <td>{{docente.familiar_acargo}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
