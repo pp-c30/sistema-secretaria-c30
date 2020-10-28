@@ -18,8 +18,12 @@
     "@angular/compiler": "~9.1.9",
     "@angular/core": "~9.1.9",
     "@angular/forms": "~9.1.9",
+<<<<<<< HEAD
     "@angular/material": "^10.2.6",
     "@angular/platform-browser": "~9.1.9",
+=======
+    "@angular/platform-browser": "^9.1.12",
+>>>>>>> e3d022048abd998e67cca10e674389eb3161ed79
     "@angular/platform-browser-dynamic": "~9.1.9",
     "@angular/router": "~9.1.9",
     "@types/jest": "^26.0.15",
