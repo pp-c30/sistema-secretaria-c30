@@ -59,7 +59,7 @@ export class ProvinciaController
     
             public async obtenerProvincia(req:Request,res:Response)
             {
-                //recibo ID para buscar un docente
+                //recibo ID para buscar una provincia
                 let id_provincia = req.params.id;
         
                 //nos conectamos a la base de datos

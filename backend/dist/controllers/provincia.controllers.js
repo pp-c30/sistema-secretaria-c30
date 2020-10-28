@@ -49,7 +49,7 @@ class ProvinciaController {
     }
     obtenerProvincia(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //recibo ID para buscar un docente
+            //recibo ID para buscar una provincia
             let id_provincia = req.params.id;
             //nos conectamos a la base de datos
             let lean = yield database_1.conexion();
