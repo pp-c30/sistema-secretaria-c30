@@ -1,1 +1,39 @@
-<p>asignatura works!</p>
+<div class="jumbotron">
+    <h1 class="display-3">Asignatura</h1>
+    <hr class="my-4">
+</div>
+
+<div class="row">
+    <div class="col-sm-1">
+        <table class="table table-Primary">
+            <thead>
+                <tr class="table-primary">
+                    <th>Descripcion</th>
+                    <th>Turno</th>
+                    <th>Hora</th>
+                    <th>Anio</th>
+                    <th>Division</th>
+                    <th>Cargo Catedra</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let asignatura of listaAsignatura">
+
+                    <td>{{asignatura.descripcion}}</td>
+
+                    <td>{{asignatura.turno}}</td>
+
+                    <td>{{asignatura.hora}}</td>
+
+                    <td>{{asignatura.anio}}</td>
+
+                    <td>{{asignatura.division}}</td>
+
+                    <td>{{asignatura.id_cargo_catedra}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
