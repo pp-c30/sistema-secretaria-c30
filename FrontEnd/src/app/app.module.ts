@@ -12,6 +12,7 @@ import { LocalidadComponent } from './components/localidad/localidad.component';
 import { PersonasACargoComponent } from './components/personas-a-cargo/personas-a-cargo.component';
 import { ProvinciasComponent } from './components/provincias/provincias.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavegacionComponent } from './components/navegacion/navegacion.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     LicenciaturaComponent,
     LocalidadComponent,
     PersonasACargoComponent,
-    ProvinciasComponent
+    ProvinciasComponent,
+    NavegacionComponent
   ],
   imports: [
     BrowserModule,
