@@ -1,8 +1,39 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-
-const routes: Routes = [];
+import { ProvinciasComponent } from './/components/provincias/provincias.component';
+import { DocenteComponent } from './/components/docente/docente.component';
+import { DesignacionComponent } from './/components/designacion/designacion.component';
+import { AsignaturaComponent } from './/components/asignatura/asignatura.component';
+import { LicenciaturaComponent } from './/components/licenciatura/licenciatura.component';
+import { LocalidadComponent } from './/components/localidad/localidad.component';
+import { PersonasACargoComponent } from './/components/personas-a-cargo/personas-a-cargo.component';
+import { NavegacionComponent } from './/components/navegacion/navegacion.component';
+const routes: Routes = [
+  {
+    path:"provincias",component:ProvinciasComponent,
+   },
+   {
+     path:"doncente",component:DocenteComponent,
+   }, 
+   {
+    path:"designacion",component:DesignacionComponent,
+   },
+   {
+    path:"asignatura",component:AsignaturaComponent,
+   },
+   {
+    path:"licenciatura",component:LicenciaturaComponent,
+   },
+   {
+    path:"localidad",component:LocalidadComponent
+   },
+   {
+     path:"personasacargo",component:PersonasACargoComponent,
+   },
+   {
+     path:"navegacion",component:NavegacionComponent,
+   }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
