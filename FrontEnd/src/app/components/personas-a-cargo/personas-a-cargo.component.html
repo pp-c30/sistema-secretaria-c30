@@ -1,1 +1,35 @@
-<p>personas-a-cargo works!</p>
+<div class="jumbotron">
+    <h1 class="display-3">Personas a Cargo</h1>
+    <hr class="my-4">
+</div>
+
+<div class="row">
+    <div class="col-sm-1">
+        <table class="table table-Primary">
+            <thead>
+                <tr class="table-primary">
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Dni</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Familiar a Cargo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let personas_acargo of listaPersonas_acargo">
+
+                    <td>{{personas_acargo.nombre}}</td>
+
+                    <td>{{personas_acargo.apellido}}</td>
+
+                    <td>{{personas_acargo.dni}}</td>
+
+                    <td>{{personas_acargo.fecha_nacimiento}}</td>
+
+                    <td>{{personas_acargo.familiar_acargo}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

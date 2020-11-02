@@ -1,0 +1,15 @@
+// tslint:disable-next-line: class-name
+export interface IPersonas_acargo {
+
+    id_pc?: number;
+
+    nombre: string;
+
+    apellido: string;
+
+    dni: string;
+
+    fecha_nacimiento: Date;
+
+    familiar_acargo: string;
+}

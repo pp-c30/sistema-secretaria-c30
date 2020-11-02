@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { DocenteService } from "../../services/docente.service";
+import { DocenteService } from '../../services/docente.service';
 
-import { IDocente } from "src/app/models/Docente";
+import { IDocente } from 'src/app/models/Docente';
 
 import { FormBuilder,FormGroup, Form } from "@angular/forms";
 
@@ -13,7 +13,7 @@ import { FormBuilder,FormGroup, Form } from "@angular/forms";
 })
 export class DocenteComponent implements OnInit {
 
-  ListarDocente:IDocente[] = [];
+  ListarDocente: IDocente[] = [];
 
   formDocente: FormGroup ;
 
@@ -75,7 +75,7 @@ export class DocenteComponent implements OnInit {
   {
     this.docenteServ.getDocente().subscribe(
       resultado => this.ListarDocente = resultado,
-      error => console.log(error))
+      error => console.log(error));
   }
 
   guardarDocente()
