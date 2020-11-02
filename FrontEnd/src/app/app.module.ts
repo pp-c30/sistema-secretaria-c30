@@ -13,6 +13,8 @@ import { PersonasACargoComponent } from './components/personas-a-cargo/personas-
 import { ProvinciasComponent } from './components/provincias/provincias.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { NavegacionComponent } from './components/navegacion/navegacion.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
