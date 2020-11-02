@@ -13,7 +13,7 @@ import { IPersonas_acargo } from 'src/app/models/personas-a-cargo';
 })
 
 // tslint:disable-next-line: class-name
-export class Personas_acargoComponent implements OnInit {
+export class PersonasACargoComponent implements OnInit {
 
   // tslint:disable-next-line: variable-name
   listaPersonas_acargo: IPersonas_acargo[] = [];
