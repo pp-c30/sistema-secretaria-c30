@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AsignaturaService } from './localidad.service';
+import { AsignaturaService } from './asignatura.service';
 
-describe('LocalidadService', () => {
+describe('AsignaturaService', () => {
   let service: AsignaturaService;
 
   beforeEach(() => {
