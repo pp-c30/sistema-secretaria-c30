@@ -1,19 +1,23 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProvinciasComponent } from './/components/provincias/provincias.component';
-import { DocenteComponent } from './/components/docente/docente.component';
 import { DesignacionComponent } from './/components/designacion/designacion.component';
 import { AsignaturaComponent } from './/components/asignatura/asignatura.component';
 import { LicenciaturaComponent } from './/components/licenciatura/licenciatura.component';
 import { LocalidadComponent } from './/components/localidad/localidad.component';
 import { PersonasACargoComponent } from './/components/personas-a-cargo/personas-a-cargo.component';
-import { NavegacionComponent } from './/components/navegacion/navegacion.component';
+import { IndexComponent } from './/components/index/index.component';
+import { DocenteComponent } from ".//components/docente/docente.component";
 const routes: Routes = [
+  
   {
     path:"provincias",component:ProvinciasComponent,
    },
    {
-     path:"doncente",component:DocenteComponent,
+     path:"",component:IndexComponent,
+   },
+   {
+     path:"docente",component:DocenteComponent,
    }, 
    {
     path:"designacion",component:DesignacionComponent,
@@ -30,9 +34,7 @@ const routes: Routes = [
    {
      path:"personasacargo",component:PersonasACargoComponent,
    },
-   {
-     path:"navegacion",component:NavegacionComponent,
-   }
+
 ];
 
 @NgModule({
