@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { DocenteService } from "../../services/docente.service";
+import { DocenteService } from '../../services/docente.service';
 
-import { IDocente } from "src/app/models/Docente";
+import { IDocente } from 'src/app/models/Docente';
 
 @Component({
   selector: 'app-docente',
@@ -11,9 +11,9 @@ import { IDocente } from "src/app/models/Docente";
 })
 export class DocenteComponent implements OnInit {
 
-  ListarDocente:IDocente[] = [];
+  ListarDocente: IDocente[] = [];
 
-  constructor(private docenteServ:DocenteService) { }
+  constructor(private docenteServ: DocenteService) { }
 
   ngOnInit(): void
   {
@@ -26,7 +26,7 @@ export class DocenteComponent implements OnInit {
   {
     this.docenteServ.getDocente().subscribe(
       resultado => this.ListarDocente = resultado,
-      error => console.log(error))
+      error => console.log(error));
   }
 
 }
