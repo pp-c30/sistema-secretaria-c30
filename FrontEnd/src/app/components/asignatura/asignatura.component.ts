@@ -4,6 +4,8 @@ import { AsignaturaService } from '../../services/asignatura.service';
 
 import { IAsignatura } from 'src/app/models/Asignatura';
 
+import { FormBuilder, FormGroup, Form, Validators  } from '@angular/forms';
+
 
 @Component({
   selector: 'app-asignatura',
@@ -14,7 +16,24 @@ export class AsignaturaComponent implements OnInit {
 
   listaAsignatura: IAsignatura[] = [];
 
-  constructor(private asignaturaServ: AsignaturaService) { }
+  formAsignatura: FormGroup;
+  // tslint:disable-next-line: variable-name
+  buscarAsignatura: any;
+  // tslint:disable-next-line: ban-types
+  l: Number = 1;
+  constructor(private asignaturaServ: AsignaturaService, private fb: FormBuilder) {
+    this.formAsignatura = this.fb.group({
+      id_asignatura: [''],
+      descripcion: ['', [Validators.required, Validators.minLength(3)]],
+      truno: [''],
+      hora: [''],
+      anio: [''],
+      division: [''],
+      id_cargo_catedra: [''],
+    });
+
+
+  }
 
   ngOnInit(): void
   {
