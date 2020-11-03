@@ -13,7 +13,7 @@ import { PersonasACargoComponent } from './components/personas-a-cargo/personas-
 import { ProvinciasComponent } from './components/provincias/provincias.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -33,7 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

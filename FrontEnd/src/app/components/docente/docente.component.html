@@ -71,7 +71,7 @@
     <div class="card">
         <div class="card-header">Formulario de Docentes</div>
             <div class="card-body">
-                <form [formGroup] = "formDocente" (ngSubmit) = "guardarDocente()" >
+                <form [formGroup]="formDocente" (ngSubmit)="guardarDocente()">
                     <div class="form-group">
                         <input formControlName="nombre" placeholder="Ingrese el Nombre" type="text" class="form-control">
                     </div>
