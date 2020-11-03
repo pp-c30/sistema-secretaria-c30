@@ -1,9 +1,3 @@
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">Docentes</h1>
-      </div>
-  </div>
-
 <div class="row">
     <div class="col-sm-12">
         <table class="table table-Primary">
@@ -77,63 +71,63 @@
     <div class="card">
         <div class="card-header">Formulario de Docentes</div>
             <div class="card-body">
-                <form>
+                <form [formGroup] = "formDocente" (ngSubmit) = "guardarDocente()" >
                     <div class="form-group">
-                        <input placeholder="Ingrese el Nombre" type="text" class="form-control">
+                        <input formControlName="nombre" placeholder="Ingrese el Nombre" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese el Apellido" type="text" class="form-control">
+                        <input  formControlName="apellido" placeholder="Ingrese el Apellido" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese el Fecha de Ingreso" type="text" class="form-control">
+                        <input  formControlName="fecha_nacimiento" placeholder="Ingrese el Fecha de nacimiento" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese el Legajo" type="text" class="form-control">
+                        <input formControlName="legajo" placeholder="Ingrese el Legajo" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese el Legajo recibo" type="text" class="form-control">
+                        <input formControlName="legajo_recibo" placeholder="Ingrese el Legajo recibo" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese el DNI" type="text" class="form-control">
+                        <input formControlName="dni" placeholder="Ingrese el DNI" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese el Cuit" type="text" class="form-control">
+                        <input formControlName="cuit" placeholder="Ingrese el Cuit" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese el Telefono " type="text" class="form-control">
+                        <input formControlName="telefono" placeholder="Ingrese el Telefono " type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese el Correo" type="text" class="form-control">
+                        <input formControlName="correo" placeholder="Ingrese el Correo" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese el Domicilio" type="text" class="form-control">
+                        <input formControlName="domicilio" placeholder="Ingrese el Domicilio" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese la Nacionalidad" type="text" class="form-control">
+                        <input formControlName="nacionalidad" placeholder="Ingrese la Nacionalidad" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese el sexo" type="text" class="form-control">
+                        <input formControlName="sexo" placeholder="Ingrese el sexo" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese el lugar de nacimiento" type="text" class="form-control">
+                        <input formControlName="lugar_de_nacimiento" placeholder="Ingrese el lugar de nacimiento" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese fecha ingreso administracion" type="text" class="form-control">
+                        <input formControlName="fecha_ingreso_adm" placeholder="Ingrese fecha ingreso administracion" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese el estado civil" type="text" class="form-control">
+                        <input formControlName="estado_civil" placeholder="Ingrese el estado civil" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese el nombre de su conyuge" type="text" class="form-control">
+                        <input formControlName="conyuge" placeholder="Ingrese el nombre de su conyuge" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese su cuil de conyuge" type="text" class="form-control">
+                        <input formControlName="cuil_conyuge" placeholder="Ingrese su cuil de conyuge" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese la fecha nacimiento conyuge" type="text" class="form-control">
+                        <input formControlName="fecha_n_conyuge" placeholder="Ingrese la fecha nacimiento conyuge" type="text" class="form-control">
                     </div>
                     <div class="form-grou">
-                        <input placeholder="Ingrese familiar a cargo" type="text" class="form-control">
+                        <input formControlName="familiar_acargo" placeholder="Ingrese familiar a cargo" type="text" class="form-control">
                     </div>
                     <button class="btn btn-success" id="alerta">Guardar</button>
                 </form>
