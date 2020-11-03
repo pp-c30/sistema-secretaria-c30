@@ -31,7 +31,11 @@ export class PersonasACargoComponent implements OnInit {
   constructor(private personas_acargoServ: Personas_acargoService, private fb: FormBuilder) {
     this.formPersonas_acargo = this.fb.group({
       id_pc: [''],
-      descripcion: ['', [Validators.required, Validators.minLength(3)]]
+      nombre: [''],
+      apellido: [''],
+      dni: [''],
+      fecha_nacimiento: [''],
+      familiar_acargo: [''],
     });
 
   }
