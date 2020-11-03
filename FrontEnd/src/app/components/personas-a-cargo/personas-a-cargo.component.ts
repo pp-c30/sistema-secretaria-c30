@@ -4,6 +4,9 @@ import { Personas_acargoService } from '../../services/personas-a-cargo.service'
 
 import { IPersonas_acargo } from 'src/app/models/personas-a-cargo';
 
+import { FormBuilder, FormGroup, Form, Validators } from '@angular/forms';
+import { group } from 'console';
+
 
 
 @Component({
@@ -16,10 +19,22 @@ import { IPersonas_acargo } from 'src/app/models/personas-a-cargo';
 export class PersonasACargoComponent implements OnInit {
 
   // tslint:disable-next-line: variable-name
-  listaPersonas_acargo: IPersonas_acargo[] = [];
+  listarPersonas_acargo: IPersonas_acargo[] = [];
+  // tslint:disable-next-line: variable-name
+  formPersonas_acargo: FormGroup;
+  // tslint:disable-next-line: variable-name
+  buscarPersonas_acargo: any;
+  // tslint:disable-next-line: ban-types
+  l: Number = 1;
 
   // tslint:disable-next-line: variable-name
-  constructor(private personas_acargoServ: Personas_acargoService) { }
+  constructor(private personas_acargoServ: Personas_acargoService, private fb: FormBuilder) {
+    this.formPersonas_acargo = this.fb.group({
+      id_pc: [''],
+      descripcion: ['', [Validators.required, Validators.minLength(3)]]
+    });
+
+  }
 
   ngOnInit(): void
   {
@@ -31,7 +46,7 @@ export class PersonasACargoComponent implements OnInit {
   obtenerPersonas_acargo()
   {
     this.personas_acargoServ.getPersonas_acargo().subscribe(
-      resultado => this.listaPersonas_acargo = resultado,
+      resultado => this.listarPersonas_acargo = resultado,
       error => console.log(error));
   }
 
