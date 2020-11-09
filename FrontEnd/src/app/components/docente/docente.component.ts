@@ -4,7 +4,7 @@ import { DocenteService } from '../../services/docente.service';
 
 import { IDocente } from 'src/app/models/Docente';
 
-import { FormBuilder,FormGroup, Form } from "@angular/forms";
+import { FormBuilder, FormGroup, Form } from '@angular/forms';
 
 @Component({
   selector: 'app-docente',
@@ -18,50 +18,50 @@ export class DocenteComponent implements OnInit {
   formDocente: FormGroup ;
 
 
-  constructor(private docenteServ:DocenteService, private fb: FormBuilder) 
-  { 
+  constructor(private docenteServ: DocenteService, private fb: FormBuilder)
+  {
     this.formDocente = this.fb.group({
 
 
-      nombre:[''],
+      nombre: [''],
 
-      apellido:[''],
+      apellido: [''],
 
-      fecha_nacimiento:[''],
+      fecha_nacimiento: [''],
 
-      legajo:[''],
+      legajo: [''],
 
-      legajo_recibo:[''],
+      legajo_recibo: [''],
 
-      dni:[''],
+      dni: [''],
 
-      cuit:[''],
+      cuit: [''],
 
-      telefono:[''],
+      telefono: [''],
 
-      correo:[''],
+      correo: [''],
 
-      domicilio:[''],
+      domicilio: [''],
 
-      nacionalidad:[''],
+      nacionalidad: [''],
 
-      sexo:[''],
+      sexo: [''],
 
-      lugar_de_nacimiento:[''],
+      lugar_de_nacimiento: [''],
 
-      fecha_ingreso_adm:[''],
+      fecha_ingreso_adm: [''],
 
-      estado_civil:[''],
+      estado_civil: [''],
 
-      conyuge:[''],
+      conyuge: [''],
 
-      cuil_conyuge:[''],
+      cuil_conyuge: [''],
 
-      fecha_n_conyuge:[''],
+      fecha_n_conyuge: [''],
 
-      familiar_acargo:['']
+      familiar_acargo: ['']
 
-    })
+    });
   }
 
   ngOnInit(): void
