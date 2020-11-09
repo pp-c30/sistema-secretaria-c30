@@ -48,5 +48,8 @@ export class AsignaturaComponent implements OnInit {
       resultado => this.listaAsignatura = resultado,
       error => console.log(error));
   }
-
+  guardarAsignatura()
+  {
+     console.log(this.formAsignatura.value);
+  }
 }

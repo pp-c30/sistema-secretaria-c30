@@ -53,5 +53,10 @@ export class PersonasACargoComponent implements OnInit {
       resultado => this.listarPersonas_acargo = resultado,
       error => console.log(error));
   }
+  guardarPersonas_acargo()
+  {
+     console.log(this.formPersonas_acargo.value);
+  }
 
 }
+
