@@ -7,32 +7,32 @@ import { LicenciaturaComponent } from './/components/licenciatura/licenciatura.c
 import { LocalidadComponent } from './/components/localidad/localidad.component';
 import { PersonasACargoComponent } from './/components/personas-a-cargo/personas-a-cargo.component';
 import { IndexComponent } from './/components/index/index.component';
-import { DocenteComponent } from ".//components/docente/docente.component";
+import { DocenteComponent } from './/components/docente/docente.component';
 const routes: Routes = [
-  
+
   {
-    path:"provincias",component:ProvinciasComponent,
+    path: 'provincias', component: ProvinciasComponent,
    },
    {
-     path:"",component:IndexComponent,
+     path: '', component: IndexComponent,
    },
    {
-     path:"docente",component:DocenteComponent,
-   }, 
-   {
-    path:"designacion",component:DesignacionComponent,
+     path: 'docente', component: DocenteComponent,
    },
    {
-    path:"asignatura",component:AsignaturaComponent,
+    path: 'designacion', component: DesignacionComponent,
    },
    {
-    path:"licenciatura",component:LicenciaturaComponent,
+    path: 'asignatura', component: AsignaturaComponent,
    },
    {
-    path:"localidad",component:LocalidadComponent
+    path: 'licenciatura', component: LicenciaturaComponent,
    },
    {
-     path:"personasacargo",component:PersonasACargoComponent,
+    path: 'localidad', component: LocalidadComponent
+   },
+   {
+     path: 'personasacargo', component: PersonasACargoComponent,
    },
 
 ];

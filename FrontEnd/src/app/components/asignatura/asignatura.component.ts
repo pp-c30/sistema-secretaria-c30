@@ -23,7 +23,6 @@ export class AsignaturaComponent implements OnInit {
   l: Number = 1;
   constructor(private asignaturaServ: AsignaturaService, private fb: FormBuilder) {
     this.formAsignatura = this.fb.group({
-      id_asignatura: [''],
       descripcion: ['', [Validators.required, Validators.minLength(3)]],
       truno: [''],
       hora: [''],

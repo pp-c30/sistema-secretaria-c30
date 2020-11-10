@@ -31,5 +31,30 @@
             </tbody>
         </table>
     </div>
+</div>
+<div class="col-sm-4">
+    <div class="card">
+        <div class="card-header">Formulario de Personas a Cargo</div>
+        <div class="card-body">
+            <form [formGroup]="formPersonas_acargo" (ngSubmit)="guardarPersonas_acargo()">
+                <div class="form-group">
+                    <input formControlName="nombre" placeholder="Ingrese el Nombre" type="text" class="form-control">
+                </div>
+                <div class="form-grou">
+                    <input formControlName="apellido" placeholder="Ingrese el Apellido" type="text" class="form-control">
+                </div>
+                <div class="form-grou">
+                    <input formControlName="dni" placeholder="Ingrese el DNI" type="text" class="form-control">
+                </div>
+                <div class="form-grou">
+                    <input formControlName="fecha_nacimiento" placeholder="Ingrese el Fecha de Nacimiento" type="text" class="form-control">
+                </div>
+                <div class="form-grou">
+                    <input formControlName="familiar_acargo" placeholder="Ingrese el Familiar a Cargo" type="text" class="form-control">
+                </div>
 
+                <button class="btn btn-success" id="alerta">Guardar</button>
+            </form>
+        </div>
+    </div>
 </div>

@@ -5,7 +5,7 @@ import { Personas_acargoService } from '../../services/personas-a-cargo.service'
 import { IPersonas_acargo } from 'src/app/models/personas-a-cargo';
 
 import { FormBuilder, FormGroup, Form, Validators } from '@angular/forms';
-import { group } from 'console';
+
 
 
 
@@ -30,7 +30,6 @@ export class PersonasACargoComponent implements OnInit {
   // tslint:disable-next-line: variable-name
   constructor(private personas_acargoServ: Personas_acargoService, private fb: FormBuilder) {
     this.formPersonas_acargo = this.fb.group({
-      id_pc: [''],
       nombre: [''],
       apellido: [''],
       dni: [''],
@@ -55,8 +54,13 @@ export class PersonasACargoComponent implements OnInit {
   }
   guardarPersonas_acargo()
   {
-     console.log(this.formPersonas_acargo.value);
+     // console.log(this.formPersonas_acargo.value);
+     this.personas_acargoServ.savePersonas_acargo(this.formPersonas_acargo.value).subscribe(
+       resultado => {
+         console.log(resultado);
+         this.obtenerPersonas_acargo();
+       }
+     );
   }
-
 }
 

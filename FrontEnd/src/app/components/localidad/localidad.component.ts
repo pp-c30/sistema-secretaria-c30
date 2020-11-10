@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { LocalidadService } from "../../services/localidad.service";
+import { LocalidadService } from '../../services/localidad.service';
 
-import { ILocalidad } from "src/app/models/Localidad";
+import { ILocalidad } from 'src/app/models/Localidad';
 
 @Component({
   selector: 'app-localidad',
@@ -11,9 +11,9 @@ import { ILocalidad } from "src/app/models/Localidad";
 })
 export class LocalidadComponent implements OnInit {
 
-  ListarLocalidad:ILocalidad[] = [];
+  ListarLocalidad: ILocalidad[] = [];
 
-  constructor(private localidadServ:LocalidadService) { 
+  constructor(private localidadServ: LocalidadService) {
 
 
   }
@@ -29,7 +29,7 @@ export class LocalidadComponent implements OnInit {
 {
   this.localidadServ.getLocalidad().subscribe(
     resultado => this.ListarLocalidad = resultado,
-    error => console.log(error))
+    error => console.log(error));
 }
 
 }
