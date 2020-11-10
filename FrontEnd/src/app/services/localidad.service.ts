@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 
-import { ILocalidad } from "../models/Localidad";
+import { ILocalidad } from '../models/Localidad';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalidadService {
 
-  constructor(private http:HttpClient) { 
+  constructor(private http: HttpClient) {
 
    }
 
