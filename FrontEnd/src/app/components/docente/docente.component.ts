@@ -6,6 +6,7 @@ import { IDocente } from 'src/app/models/Docente';
 
 import { FormBuilder, FormGroup, Form } from '@angular/forms';
 
+
 @Component({
   selector: 'app-docente',
   templateUrl: './docente.component.html',
@@ -17,7 +18,7 @@ export class DocenteComponent implements OnInit {
 
   formDocente: FormGroup ;
 
-
+// construccion del formulario utilizando el formbuilder y el fb group
   constructor(private docenteServ: DocenteService, private fb: FormBuilder)
   {
     this.formDocente = this.fb.group({
@@ -47,7 +48,7 @@ export class DocenteComponent implements OnInit {
 
       sexo: [''],
 
-      lugar_de_nacimiento: [''],
+      lugar_de_nacimiento: [null],
 
       fecha_ingreso_adm: [''],
 
@@ -59,7 +60,7 @@ export class DocenteComponent implements OnInit {
 
       fecha_n_conyuge: [''],
 
-      familiar_acargo: ['']
+      familiar_acargo: [null]
 
     });
   }
@@ -73,6 +74,7 @@ export class DocenteComponent implements OnInit {
 
   obtenerDocente()
   {
+    //obtenemos todos los datos del docente mediante el getDocente
     this.docenteServ.getDocente().subscribe(
       resultado => this.ListarDocente = resultado,
       error => console.log(error));
@@ -80,7 +82,17 @@ export class DocenteComponent implements OnInit {
 
   guardarDocente()
   {
-     console.log(this.formDocente.value);
+     //console.log(this.formDocente.value);
+
+     //mando el save docente al form docente
+     this.docenteServ.saveDocente(this.formDocente.value).subscribe(
+       resultado => {
+         console.log(resultado);
+         //refresca la grilla
+         this.obtenerDocente();
+       },
+       error => console.log(error)
+     );
   }
 
 }
