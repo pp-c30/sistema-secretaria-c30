@@ -24,8 +24,9 @@ export class AsignaturaComponent implements OnInit {
   l: Number = 1;
   constructor(private asignaturaServ: AsignaturaService, private fb: FormBuilder) {
     this.formAsignatura = this.fb.group({
+      id_asignatura: [null],
       descripcion: ['', [Validators.required, Validators.minLength(3)]],
-      truno: [''],
+      turno: [''],
       hora: [''],
       anio: [''],
       division: [''],
@@ -80,7 +81,7 @@ export class AsignaturaComponent implements OnInit {
 
     if (confirm('Esta seguro que desea ejecutar esta acción'))
     {
-      this.AsignaturaService.deleteAsignatura(id).subscribe(
+      this.asignaturaServ.deleteAsignatura(id).subscribe(
         respuesta => {
           console.log(respuesta);
           this.obtenerAsignatura();

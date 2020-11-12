@@ -31,6 +31,7 @@ export class PersonasACargoComponent implements OnInit {
   // tslint:disable-next-line: variable-name
   constructor(private personas_acargoServ: Personas_acargoService, private fb: FormBuilder) {
     this.formPersonas_acargo = this.fb.group({
+      id_pc: [null],
       nombre: [''],
       apellido: [''],
       dni: [''],
@@ -58,7 +59,7 @@ export class PersonasACargoComponent implements OnInit {
     if (this.formPersonas_acargo.value.id_pc)
     {
       // se actualiza
-      this.Personas_acargoService.updatePersonas_acargo(this.formPersonas_acargo.value).subscribe(
+      this.personas_acargoServ.updatePersonas_acargo(this.formPersonas_acargo.value).subscribe(
         respuesta => {
           console.log(respuesta);
           this.obtenerPersonas_acargo();
@@ -67,7 +68,7 @@ export class PersonasACargoComponent implements OnInit {
         error => console.log(error)
       );
     }else{
-      this.Personas_acargoService.savePersonas_acargo(this.formPersonas_acargo.value).subscribe(
+      this.personas_acargoServ.savePersonas_acargo(this.formPersonas_acargo.value).subscribe(
         resultado => {
           console.log(resultado);
           this.obtenerPersonas_acargo();
@@ -87,7 +88,7 @@ export class PersonasACargoComponent implements OnInit {
 
       if (confirm('Esta seguro que desea ejecutar esta acción'))
       {
-        this.Personas_acargoService.deletePersonas_acargo(id).subscribe(
+        this.personas_acargoServ.deletePersonas_acargo(id).subscribe(
           respuesta => {
             console.log(respuesta);
             this.obtenerPersonas_acargo();
