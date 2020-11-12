@@ -17,6 +17,7 @@ import { FormBuilder, FormGroup, Form, Validators } from '@angular/forms';
 
 // tslint:disable-next-line: class-name
 export class PersonasACargoComponent implements OnInit {
+  [x: string]: any;
 
   // tslint:disable-next-line: variable-name
   listarPersonas_acargo: IPersonas_acargo[] = [];
@@ -54,13 +55,45 @@ export class PersonasACargoComponent implements OnInit {
   }
   guardarPersonas_acargo()
   {
-     // console.log(this.formPersonas_acargo.value);
-     this.personas_acargoServ.savePersonas_acargo(this.formPersonas_acargo.value).subscribe(
-       resultado => {
-         console.log(resultado);
-         this.obtenerPersonas_acargo();
-       }
-     );
+    if (this.formPersonas_acargo.value.id_pc)
+    {
+      // se actualiza
+      this.Personas_acargoService.updatePersonas_acargo(this.formPersonas_acargo.value).subscribe(
+        respuesta => {
+          console.log(respuesta);
+          this.obtenerPersonas_acargo();
+          this.formPersonas_acargo.reset();
+        },
+        error => console.log(error)
+      );
+    }else{
+      this.Personas_acargoService.savePersonas_acargo(this.formPersonas_acargo.value).subscribe(
+        resultado => {
+          console.log(resultado);
+          this.obtenerPersonas_acargo();
+        },
+        error => console.log(error)
+      );
+     }
   }
-}
+    // tslint:disable-next-line: variable-name
+    editarPersonas_acargo(personas_acargo: IPersonas_acargo)
+    {
+      this.formPersonas_acargo.setValue(personas_acargo);
+    }
 
+    eliminarPersonas_acargo(id: number)
+    {
+
+      if (confirm('Esta seguro que desea ejecutar esta acción'))
+      {
+        this.Personas_acargoService.deletePersonas_acargo(id).subscribe(
+          respuesta => {
+            console.log(respuesta);
+            this.obtenerPersonas_acargo();
+          },
+          error => console.log(error)
+        );
+      }
+    }
+}

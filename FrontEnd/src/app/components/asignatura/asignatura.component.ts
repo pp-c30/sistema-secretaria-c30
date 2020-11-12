@@ -13,6 +13,7 @@ import { FormBuilder, FormGroup, Form, Validators  } from '@angular/forms';
   styleUrls: ['./asignatura.component.css']
 })
 export class AsignaturaComponent implements OnInit {
+  [x: string]: any;
 
   listaAsignatura: IAsignatura[] = [];
 
@@ -49,6 +50,43 @@ export class AsignaturaComponent implements OnInit {
   }
   guardarAsignatura()
   {
-     console.log(this.formAsignatura.value);
+    if (this.formAsignatura.value.id_pc)
+    {
+      // se actualiza
+      this.asignaturaServ.updateAsignatura(this.formAsignatura.value).subscribe(
+        respuesta => {
+          console.log(respuesta);
+          this.obtenerAsignatura();
+        },
+        error => console.log(error)
+      );
+    }else{
+      this.asignaturaServ.saveAsignatura(this.formAsignatura.value).subscribe(
+        resultado => {
+          console.log(resultado);
+          this.obtenerAsignatura();
+        },
+        error => console.log(error)
+      );
+     }
   }
-}
+  // tslint:disable-next-line: variable-name
+  editarAsignatura(asignatura: IAsignatura)
+  {
+    this.formAsignatura.setValue(asignatura);
+  }
+  eliminarAsignatura(id: number)
+  {
+
+    if (confirm('Esta seguro que desea ejecutar esta acción'))
+    {
+      this.AsignaturaService.deleteAsignatura(id).subscribe(
+        respuesta => {
+          console.log(respuesta);
+          this.obtenerAsignatura();
+        },
+        error => console.log(error)
+      );
+    }
+  }
+  }

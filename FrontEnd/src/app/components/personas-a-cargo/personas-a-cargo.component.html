@@ -29,8 +29,11 @@
                     <td>{{personas_acargo.familiar_acargo}}</td>
 
                     <div class="btn-group btn-group-sm">
-                        <button class="btn btn-danger">Eliminar</button>
-                        <button class="btn btn-primary">Editar</button>
+
+                        <button (click)="eliminarPersonas_acargo(personas_acargo.id_pc);" class="btn btn-danger">Eliminar</button>
+
+                        <button (click)="editarPersonas_acargo(personas_acargo)" class="btn btn-primary">Editar</button>
+
                     </div>
                 </tr>
             </tbody>
@@ -42,6 +45,9 @@
         <div class="card-header">Formulario de Personas a Cargo</div>
         <div class="card-body">
             <form [formGroup]="formPersonas_acargo" (ngSubmit)="guardarPersonas_acargo()">
+
+                <input formControlName="id_pc" type="hidden">
+
                 <div class="form-group">
                     <input formControlName="nombre" placeholder="Ingrese el Nombre" type="text" class="form-control">
                 </div>

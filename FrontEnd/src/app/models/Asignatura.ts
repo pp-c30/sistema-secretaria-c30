@@ -1,17 +1,17 @@
 export interface IAsignatura {
 
-    id_asignatura?:number;
+    id_asignatura?: number;
 
-    descripcion:string;
+    descripcion: string;
 
-    turno:string;
+    turno: string;
 
-    hora:string;
+    hora: string;
 
-    anio:number;
+    anio: number;
 
-    division:string;
+    division: string;
 
-    id_cargo_catedra:string;
-    
+    id_cargo_catedra: string;
+
 }

@@ -31,6 +31,13 @@
 
                     <td>{{asignatura.id_cargo_catedra}}</td>
 
+                    <div class="btn-group btn-group-sm">
+
+                        <button (click)="eliminarAsignatura(asignatura.id_asignatura);" class="btn btn-danger">Eliminar</button>
+
+                        <button (click)="editarAsignatura(asignatura)" class="btn btn-primary">Editar</button>
+
+                    </div>
                 </tr>
             </tbody>
         </table>
@@ -41,6 +48,9 @@
         <div class="card-header">Formulario de Asignatura</div>
         <div class="card-body">
             <form [formGroup]="formAsignatura" (ngSubmit)="guardarAsignatura()">
+
+                <input formControlName="id_asignatura" type="hidden">
+
                 <div class="form-group">
                     <input formControlName="descripcion" placeholder="Ingrese una Descripcion" type="text" class="form-control">
                 </div>

@@ -26,10 +26,10 @@ export class AsignaturaService {
   updateAsignatura(unaAsignatura: IAsignatura)
   {
     const id: number = unaAsignatura.id_asignatura;
-    return this.http.put('http://localhost:3000/asignatura', unaAsignatura);
+    return this.http.put('http://localhost:3000/asignatura/' + id, unaAsignatura);
   }
   deleteAsignatura(id: number)
     {
-      return this.http.delete('http://localhost:3000/asignatura');
+      return this.http.delete('http://localhost:3000/asignatura/' + id);
     }
   }

@@ -31,10 +31,10 @@ export class Personas_acargoService {
 updatePersonas_acargo(unaPersonas_acargo: IPersonas_acargo)
 {
   const id: number = unaPersonas_acargo.id_pc;
-  return this.http.put('http://localhost:3000/personas_acargo', unaPersonas_acargo);
+  return this.http.put('http://localhost:3000/personas_acargo/' + id, unaPersonas_acargo);
 }
 deletePersonas_acargo(id: number)
   {
-    return this.http.delete('http://localhost:3000/personas_acargo');
+    return this.http.delete('http://localhost:3000/personas_acargo/' + id);
   }
 }
