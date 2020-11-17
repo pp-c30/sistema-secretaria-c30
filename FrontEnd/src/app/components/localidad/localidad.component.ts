@@ -4,6 +4,8 @@ import { LocalidadService } from '../../services/localidad.service';
 
 import { ILocalidad } from 'src/app/models/Localidad';
 
+import { FormBuilder, FormGroup, Form } from '@angular/forms';
+
 @Component({
   selector: 'app-localidad',
   templateUrl: './localidad.component.html',
@@ -13,8 +15,16 @@ export class LocalidadComponent implements OnInit {
 
   ListarLocalidad: ILocalidad[] = [];
 
-  constructor(private localidadServ: LocalidadService) {
+  formLocalidad: FormGroup ;
+  // construccion del formulario utilizando el formbuilder y el fb group
+  constructor(private localidadServ: LocalidadService, private fb: FormBuilder)
+  {
+    this.formLocalidad = this.fb.group
+    ({
+      id_localidad:[null],
 
+      descripcion: ['']
+    });
 
   }
 
@@ -31,5 +41,41 @@ export class LocalidadComponent implements OnInit {
     resultado => this.ListarLocalidad = resultado,
     error => console.log(error));
 }
+guardarLocalidad()
+{
+  if(this.formLocalidad.value.id_localidad)
+  //se actualiza
+  {
+    this.localidadServ.updateLocalidad(this.formLocalidad.value).subscribe(
+      respuesta => {
+        console.log(respuesta);
+        this.obtenerLocalidad();
+        this.formLocalidad.reset();
+      },
+      error => console.log(error)
+      )
+  }
+}
+  //traigo tood lo de IDocente para poderlo editar
+  editarLocalidad(localidad:ILocalidad)
+  {
+    this.formLocalidad.setValue(localidad)
+  }
 
+  eliminarLocalidad(id:number)
+  {
+    //esto es una alerta antes de borrar una localidad
+    if(confirm ('Estas seguro que desea ejecutar esta accion?'))
+    {
+      //se elimina una localidad por id
+      this.localidadServ.deleteLocalidad(id).subscribe(
+        respuesta => {
+          console.log(respuesta);
+          this.obtenerLocalidad();
+        }, 
+        error => console.log(error)
+      );
+    } 
+
+  }
 }
