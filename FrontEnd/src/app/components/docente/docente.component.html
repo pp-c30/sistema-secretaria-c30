@@ -1,8 +1,9 @@
 <div class="row">
     <div class="col-sm-12">
-        <table class="table table-Primary">
+        <table class="table table-striped">
             <thead>
                 <tr class="table-primary">
+                    <th>Id</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Fecha de nacimiento</th>
@@ -22,10 +23,13 @@
                     <th>Cuil de Conyuge</th>
                     <th>Fecha de nacimiento Conyuge</th>
                     <th>Familiar a cargo</th>
+                    <th>Operaciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let docente of ListarDocente">
+
+                    <td>{{docente.id_docente}}</td>
 
                     <td>{{docente.nombre}}</td>
 
@@ -61,8 +65,16 @@
 
                     <td>{{docente.fecha_n_conyuge}}</td>
 
-                    <td>{{docente.familiar_acargo}}</td>
+                    <td>{{docente.fecha_n_conyuge}}</td>
 
+                    <td>{{docente.familiar_acargo}}</td>
+                    
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <button (click)="eliminarDocente(docente.id_docente);" class="btn btn-danger">Eliminar</button>
+                            <button (click)="editarDocente(docente)" class="btn btn-primary">Editar</button>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -72,6 +84,11 @@
         <div class="card-header">Formulario de Docentes</div>
             <div class="card-body">
                 <form [formGroup]="formDocente" (ngSubmit)="guardarDocente()">
+
+                    <div class="form-group">
+                        <input formControlName="id_docente" type="text" class="form-control">
+                    </div>
+
                     <div class="form-group">
                         <input formControlName="nombre" placeholder="Ingrese el Nombre" type="text" class="form-control">
                     </div>

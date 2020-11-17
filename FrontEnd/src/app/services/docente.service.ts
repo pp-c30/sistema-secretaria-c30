@@ -23,4 +23,18 @@ export class DocenteService {
   {
    return this.http.post('http://localhost:3000/docente', unDocente);
   }
+
+  updateDocente(unDocente:IDocente)
+ {
+  let id:number = unDocente.id_docente;
+
+   return this.http.put('http://localhost:3000/docente/'+id, unDocente);
+
+ } 
+
+ deleteDocente(id:number)
+ {
+  return this.http.delete('http://localhost:3000/docente/'+id,);
+ }
+
 }
