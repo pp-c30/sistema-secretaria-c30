@@ -29,6 +29,6 @@ export class LocalidadService {
     } 
     deleteLocalidad(id:number)
     {
-     return this.http.delete('http://localhost:3000/localidad/'+id,);
+     return this.http.delete('http://localhost:3000/localidad/'+id);
     }
 }

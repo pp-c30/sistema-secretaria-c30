@@ -6,7 +6,11 @@ export class LocalidadController
 {
     public async eliminarLocalidad(req:Request,res:Response)
     {
+        try
+        {
+
         
+
         let id_localidad = req.params.id;
 
         
@@ -14,8 +18,10 @@ export class LocalidadController
 
         await lean.query('delete from localidad where id_localidad = ?',id_localidad);
 
-        return res.json('Se elimino la localidad del docente');
+        res.json('Se elimino la localidad');
+        }catch { res.json('No se puede eliminar porque ya esta en uso') }
     }
+
     public async listaLocalidad(req:Request,res:Response)
     {
         //conecto con la base

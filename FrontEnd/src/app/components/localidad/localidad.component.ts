@@ -23,7 +23,9 @@ export class LocalidadComponent implements OnInit {
     ({
       id_localidad:[null],
 
-      descripcion: ['']
+      descripcion: [''],
+
+      id_provincia: ['']
     });
 
   }
@@ -70,7 +72,7 @@ guardarLocalidad()
       //se elimina una localidad por id
       this.localidadServ.deleteLocalidad(id).subscribe(
         respuesta => {
-          console.log(respuesta);
+          alert(respuesta);
           this.obtenerLocalidad();
         }, 
         error => console.log(error)
