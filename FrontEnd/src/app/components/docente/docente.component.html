@@ -1,5 +1,8 @@
 <div class="row">
     <div class="col-sm-12">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Nuevo docente
+          </button>
         <table class="table table-striped">
             <thead>
                 <tr class="table-primary">
@@ -79,75 +82,87 @@
             </tbody>
         </table>
     </div>
-<div class="col-sm-4">
-    <div class="card">
-        <div class="card-header">Formulario de Docentes</div>
-            <div class="card-body">
-                <form [formGroup]="formDocente" (ngSubmit)="guardarDocente()">
-
-                    <div class="form-group">
-                        <input formControlName="id_docente" type="text" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <input formControlName="nombre" placeholder="Ingrese el Nombre" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input  formControlName="apellido" placeholder="Ingrese el Apellido" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input  formControlName="fecha_nacimiento" placeholder="Ingrese el Fecha de nacimiento" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input formControlName="legajo" placeholder="Ingrese el Legajo" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input formControlName="legajo_recibo" placeholder="Ingrese el Legajo recibo" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input formControlName="dni" placeholder="Ingrese el DNI" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input formControlName="cuit" placeholder="Ingrese el Cuit" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input formControlName="telefono" placeholder="Ingrese el Telefono " type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input formControlName="correo" placeholder="Ingrese el Correo" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input formControlName="domicilio" placeholder="Ingrese el Domicilio" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input formControlName="nacionalidad" placeholder="Ingrese la Nacionalidad" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input formControlName="sexo" placeholder="Ingrese el sexo" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input formControlName="lugar_de_nacimiento" placeholder="Ingrese el lugar de nacimiento" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input formControlName="fecha_ingreso_adm" placeholder="Ingrese fecha ingreso administracion" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input formControlName="estado_civil" placeholder="Ingrese el estado civil" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input formControlName="conyuge" placeholder="Ingrese el nombre de su conyuge" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input formControlName="cuil_conyuge" placeholder="Ingrese su cuil de conyuge" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input formControlName="fecha_n_conyuge" placeholder="Ingrese la fecha nacimiento conyuge" type="text" class="form-control">
-                    </div>
-                    <div class="form-grou">
-                        <input formControlName="familiar_acargo" placeholder="Ingrese familiar a cargo" type="text" class="form-control">
-                    </div>
-                    <button class="btn btn-success" id="alerta">Guardar</button>
-                </form>
-            </div>
-    </div>
 </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nuevo Docente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form [formGroup]="formDocente" (ngSubmit)="guardarDocente()">
+        <div class="modal-body">
+
+                <div class="form-group">
+                    <input formControlName="id_docente" type="text" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <input formControlName="nombre" placeholder="Ingrese el Nombre" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input  formControlName="apellido" placeholder="Ingrese el Apellido" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input  formControlName="fecha_nacimiento" placeholder="Ingrese el Fecha de nacimiento" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input formControlName="legajo" placeholder="Ingrese el Legajo" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input formControlName="legajo_recibo" placeholder="Ingrese el Legajo recibo" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input formControlName="dni" placeholder="Ingrese el DNI" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input formControlName="cuit" placeholder="Ingrese el Cuit" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input formControlName="telefono" placeholder="Ingrese el Telefono " type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input formControlName="correo" placeholder="Ingrese el Correo" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input formControlName="domicilio" placeholder="Ingrese el Domicilio" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input formControlName="nacionalidad" placeholder="Ingrese la Nacionalidad" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input formControlName="sexo" placeholder="Ingrese el sexo" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input formControlName="lugar_de_nacimiento" placeholder="Ingrese el lugar de nacimiento" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input formControlName="fecha_ingreso_adm" placeholder="Ingrese fecha ingreso administracion" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input formControlName="estado_civil" placeholder="Ingrese el estado civil" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input formControlName="conyuge" placeholder="Ingrese el nombre de su conyuge" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input formControlName="cuil_conyuge" placeholder="Ingrese su cuil de conyuge" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input formControlName="fecha_n_conyuge" placeholder="Ingrese la fecha nacimiento conyuge" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input formControlName="familiar_acargo" placeholder="Ingrese familiar a cargo" type="text" class="form-control">
+                </div>
+                
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button class="btn btn-success" id="alerta">Guardar</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
