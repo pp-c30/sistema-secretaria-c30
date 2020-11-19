@@ -14,7 +14,8 @@ import { ProvinciasComponent } from './components/provincias/provincias.componen
 import { HttpClientModule } from '@angular/common/http';
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AngularEditorModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

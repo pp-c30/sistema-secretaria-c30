@@ -9,7 +9,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Personas_acargoController = void 0;
 const database_1 = require("../database");
 class Personas_acargoController {
     crearPersonas_acargo(req, res) {
@@ -45,7 +44,7 @@ class Personas_acargoController {
         return __awaiter(this, void 0, void 0, function* () {
             //conecto con la base
             const lean = yield database_1.conexion();
-            let personas_acargo = yield lean.query('select * from personas_acargo');
+            let personas_acargo = yield lean.query('select *, DATE_FORMAT(fecha_nacimiento, "%d/%m/%Y") as fecha_nacimiento from personas_acargo');
             return res.json(personas_acargo[0]);
         });
     }

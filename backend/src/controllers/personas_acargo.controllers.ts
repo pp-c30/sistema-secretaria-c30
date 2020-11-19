@@ -52,7 +52,7 @@ export class Personas_acargoController
         //conecto con la base
         const lean = await conexion();
 
-        let personas_acargo = await lean.query('select * from personas_acargo');
+        let personas_acargo = await lean.query('select *, DATE_FORMAT(fecha_nacimiento, "%d/%m/%Y") as fecha_nacimiento from personas_acargo');
 
         return res.json(personas_acargo[0]);
 
