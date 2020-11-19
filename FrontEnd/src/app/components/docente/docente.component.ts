@@ -18,11 +18,12 @@ export class DocenteComponent implements OnInit {
 
   formDocente: FormGroup ;
 
-// construccion del formulario utilizando el formbuilder y el fb group
+  // construccion del formulario utilizando el formbuilder y el fb group
   constructor(private docenteServ: DocenteService, private fb: FormBuilder)
   {
     this.formDocente = this.fb.group({
 
+      id_docente:[null],
 
       nombre: [''],
 
@@ -60,7 +61,7 @@ export class DocenteComponent implements OnInit {
 
       fecha_n_conyuge: [''],
 
-      familiar_acargo: [null]
+      familiar_acargo: [null],
 
     });
   }
@@ -82,17 +83,54 @@ export class DocenteComponent implements OnInit {
 
   guardarDocente()
   {
-     //console.log(this.formDocente.value);
+    if(this.formDocente.value.id_docente)
+    //se actualiza
+    {
+      this.docenteServ.updateDocente(this.formDocente.value).subscribe(
+        respuesta => {
+          console.log(respuesta);
+          this.obtenerDocente();
+          this.formDocente.reset();
+        },
+        error => console.log(error)
+        )
+    }
+    else{
 
      //mando el save docente al form docente
      this.docenteServ.saveDocente(this.formDocente.value).subscribe(
-       resultado => {
-         console.log(resultado);
-         //refresca la grilla
-         this.obtenerDocente();
-       },
-       error => console.log(error)
-     );
+      resultado => {
+        console.log(resultado);
+        //refresca la grilla
+        this.obtenerDocente();
+      },
+      error => console.log(error)
+    );
+    }
+
+  }
+  //traigo tood lo de IDocente para poderlo editar
+  editarDocente(docente:IDocente)
+  {
+    this.formDocente.setValue(docente)
+  }
+
+
+  eliminarDocente(id:number)
+  {
+    //esto es una alerta antes de borrar un docente
+    if(confirm ('Estas seguro que desea ejecutar esta accion?'))
+    {
+      //se elimina un docente por id
+      this.docenteServ.deleteDocente(id).subscribe(
+        respuesta => {
+          console.log(respuesta);
+          this.obtenerDocente();
+        }, 
+        error => console.log(error)
+      );
+    } 
+
   }
 
 }

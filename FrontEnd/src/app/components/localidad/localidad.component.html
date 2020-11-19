@@ -1,11 +1,12 @@
 <div class="row">
 
     <div class="col-sm-8">
-        <table class="table table-hover">
+        <table class="table table-striped">
             <thead>
-                <tr class="table-success">
+                <tr class="table-primary">
                     <th>Provincia</th>
                     <th>Descripcion</th>
+                    <th>Operaciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -15,10 +16,34 @@
 
                     <td>{{localidad.descripcion}}</td>
 
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <button (click)="eliminarLocalidad(localidad.id_localidad);" class="btn btn-danger">Eliminar</button>
+                            <button (click)="editarLocalidad(localidad)" class="btn btn-primary">Editar</button>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
-
     </div>
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-header">Formulario de localidad</div>
+                <div class="card-body">
+                    <form [formGroup]="formLocalidad" (ngSubmit)="guardarLocalidad()">
+    
+                        <div class="form-group">
+                            <input formControlName="id_localidad"  type="text" class="form-control">
+                        </div>
 
+                        <div class="form-group">
+                            <input formControlName="descripcion" placeholder="Ingrese descripcion" type="text" class="form-control">
+                        </div>
+
+                        <button class="btn btn-success" id="alerta">Guardar</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+    
 </div>
