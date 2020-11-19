@@ -16,6 +16,7 @@ import { NavegacionComponent } from './components/navegacion/navegacion.componen
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     FormsModule,
     AngularEditorModule,
-    NgbModule
+    NgbModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
