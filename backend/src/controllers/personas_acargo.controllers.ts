@@ -54,7 +54,7 @@ export class Personas_acargoController
 
         let personas_acargo = await lean.query('select *, DATE_FORMAT(fecha_nacimiento, "%d/%m/%Y") as fecha_nacimiento from personas_acargo');
 
-        return res.json(personas_acargo[0]);
+        res.json(personas_acargo);
 
     }
     public async obtenerPersonas_acargo(req:Request,res:Response)

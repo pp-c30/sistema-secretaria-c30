@@ -45,7 +45,7 @@ class Personas_acargoController {
             //conecto con la base
             const lean = yield database_1.conexion();
             let personas_acargo = yield lean.query('select *, DATE_FORMAT(fecha_nacimiento, "%d/%m/%Y") as fecha_nacimiento from personas_acargo');
-            return res.json(personas_acargo[0]);
+            res.json(personas_acargo);
         });
     }
     obtenerPersonas_acargo(req, res) {
