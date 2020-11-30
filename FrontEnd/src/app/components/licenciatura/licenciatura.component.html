@@ -1,1 +1,95 @@
-<p>licenciatura works!</p>
+<div class="row">
+
+    <div class="col-sm-8">
+        <table class="table table-striped">
+            <thead>
+                <tr class="table-primary">
+                    <th>Id</th>
+                    <th>ID Docente</th>
+                    <th>Licencia desde</th>
+                    <th>ID asignatura</th>
+                    <th>ID docente suplente</th>
+                    <th>N° de Resolucion</th>
+                    <th>Fecha alta suplente</th>
+                    <th>Fecha baja suplente</th>
+                    <th>Estado licencia</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let licencia of ListarLicencia">
+
+                    <td>{{licencia.id_licencia}}</td>
+
+                    <td>{{licencia.id_docente}}</td>
+
+                    <td>{{licencia.licencia_desde}}</td>
+
+                    <td>{{licencia.id_asignatura}}</td>
+
+                    <td>{{licencia.id_docente_suplente}}</td>
+
+                    <td>{{licencia.n_resolucion}}</td>
+
+                    <td>{{licencia.fecha_alta_suplente}}</td>
+
+                    <td>{{licencia.fecha_baja_suplente}}</td>
+
+                    <td>{{licencia.estado_licencia}}</td>
+
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <button (click)="eliminarLicencia(licencia.id_licencia);" class="btn btn-danger">Eliminar</button>
+                            <button (click)="editarLicencia(licencia)" class="btn btn-primary">Editar</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-header">Formulario de licencia</div>
+                <div class="card-body">
+                    <form [formGroup]="formLicencia" (ngSubmit)="guardarLicencia()">
+    
+
+                        <div class="form-group">
+                            <input formControlName="id_docente" placeholder="Ingrese ID docente" type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <input formControlName="licencia_desde" placeholder="Ingrese licencia desde" type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <input formControlName="id_asignatura" placeholder="Ingrese ID asignatura" type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <input formControlName="id_docente_suplente" placeholder="Ingrese ID docente suplente" type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <input formControlName="n_resolucion" placeholder="Ingrese N° de resolucion" type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <input formControlName="fecha_alta_suplente" placeholder="Ingrese fecha alta suplente" type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <input formControlName="fecha_baja_suplente" placeholder="Ingrese fecha baja suplente" type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <input formControlName="estado_licencia" placeholder="Ingrese estado licencia" type="text" class="form-control">
+                        </div>
+
+                        <button class="btn btn-success" id="alerta">Guardar</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
