@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './components/index/index.component';
@@ -16,8 +15,11 @@ import { NavegacionComponent } from './components/navegacion/navegacion.componen
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {MatBadgeModule} from '@angular/material/badge';
-
+import { MatBadgeModule} from '@angular/material/badge';
+//terminar de ver video de delfor para importar el filtrador de provincia
+import { Ng2SearchPipeModule } from "ng2-search-filter";
+import { LayoutModule } from '@angular/cdk/layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,10 @@ import {MatBadgeModule} from '@angular/material/badge';
     FormsModule,
     AngularEditorModule,
     NgbModule,
-    MatBadgeModule
+    MatBadgeModule,
+    Ng2SearchPipeModule,
+    BrowserAnimationsModule,
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

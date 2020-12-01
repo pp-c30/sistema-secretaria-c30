@@ -50,11 +50,11 @@ export class DesignacionController
 
         let id_designacion = req.params.id;
 
-        let IDesignacion = req.body;
+        let designacion = req.body;
 
         let con = await conexion();
 
-        await con.query('update designacion set ? where id_designacion= ?', [IDesignacion, id_designacion]);
+        await con.query('update designacion set ? where id_designacion = ?', [designacion, id_designacion]);
 
         return res.json('La asignacion se a actualizado exitosamente');
     }

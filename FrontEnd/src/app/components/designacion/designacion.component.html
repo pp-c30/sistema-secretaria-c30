@@ -1,1 +1,76 @@
-<p>designacion works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                     <input placeholder="Ingrese designacion a buscar" [(ngModel)]="buscarDesignacion" type="text" class="form-control">
+                    </div>
+                </div>
+             </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>id Designacion</th>
+                        <th>id Docente</th>
+                        <th>id Asignatura</th>
+                        <th>fecha Designacion</th>
+                        <th>situacion Revista</th>
+                        <th>en Remplazo</th>
+                        <th>codigo Articulo</th>
+                        <th>fecha_inicio</th>
+                        <th>fecha_final</th>
+                        <th>vuelta</th>
+                        <th>listado</th>
+                        <th>titulo</th>
+                        <th>estado</th>
+                    </tr>
+                </thead>
+            <tbody>
+                <tr *ngFor=" let designacion of listDesignacion">
+                      <td>{{designacion.id_designacion}}</td>
+                      <td>{{designacion.id_docente}}</td>
+                      <td>{{designacion.id_asignatura}}</td>
+                      <td>{{designacion.fecha_designacion}}</td>
+                      <td>{{designacion.situacion_revista}}</td>
+                      <td>{{designacion.en_remplazo}}</td>
+                      <td>{{designacion.codigo_articulo}}</td>
+                      <td>{{designacion.fecha_inicio}}</td>
+                      <td>{{designacion.fecha_final}}</td>
+                      <td>{{designacion.vuelta}}</td>
+                      <td>{{designacion.listado}}</td>
+                      <td>{{designacion.titulo}}</td>
+                      <td>{{designacion.estado}}</td>
+                </tr>
+    
+            </tbody>
+            </table>
+    </div>
+       <div class="col-sm-4">
+           <div class="card">
+         <div class="card-header">Formlario de Designacion</div>
+            <div class="card-body">
+            <form>
+                <div class="form-group">
+            <input placeholder="Ingrese los datos" type="text" class="form-control"> 
+            <input placeholder="Ingrese el docente" type="text" class="form-control"> 
+            <input placeholder="Ingrese la asignatura" type="text" class="form-control"> 
+            <input placeholder="Ingrese la fecha de la designacion" type="text" class="form-control"> 
+            <input placeholder="Ingrese la situacion revista" type="text" class="form-control"> 
+            <input placeholder="Ingrese el remplazo" type="text" class="form-control"> 
+            <input placeholder="Ingrese codigo del artuculo" type="text" class="form-control"> 
+            <input placeholder="Ingrese la fecha de incio" type="text" class="form-control"> 
+            <input placeholder="Ingrese la fecha de finalizacion" type="text" class="form-control"> 
+            <input placeholder="Ingrese la vuelta" type="text" class="form-control"> 
+            <input placeholder="Ingrese el listado" type="text" class="form-control"> 
+            <input placeholder="Ingrese el titulo" type="text" class="form-control"> 
+            <input placeholder="Ingrese el estado" type="text" class="form-control"> 
+                </div>
+                <button type="button" class="btn btn-success">Guardar</button>
+            </form>
+                </div>
+        </div>
+              
+        
+    </div>
+</div>

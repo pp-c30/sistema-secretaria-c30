@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DesignacionController = void 0;
 const database_1 = require("../database");
 class DesignacionController {
     listaDesignacion(req, res) {
@@ -40,9 +41,9 @@ class DesignacionController {
         return __awaiter(this, void 0, void 0, function* () {
             //metodo UPDATE
             let id_designacion = req.params.id;
-            let IDesignacion = req.body;
+            let designacion = req.body;
             let con = yield database_1.conexion();
-            yield con.query('update designacion set ? where id_designacion= ?', [IDesignacion, id_designacion]);
+            yield con.query('update designacion set ? where id_designacion = ?', [designacion, id_designacion]);
             return res.json('La asignacion se a actualizado exitosamente');
         });
     }

@@ -8,6 +8,7 @@ import { LocalidadComponent } from './/components/localidad/localidad.component'
 import { PersonasACargoComponent } from './/components/personas-a-cargo/personas-a-cargo.component';
 import { IndexComponent } from './/components/index/index.component';
 import { DocenteComponent } from './/components/docente/docente.component';
+
 const routes: Routes = [
 
   {
