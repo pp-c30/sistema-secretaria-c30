@@ -66,6 +66,18 @@ export class LicenciaturaComponent implements OnInit {
         error => console.log(error)
         )
     }
+    else{
+
+      //mando el save docente al form docente
+      this.licenciaServ.saveLicencia(this.formLicencia.value).subscribe(
+       resultado => {
+         console.log(resultado);
+         //refresca la grilla
+         this.obtenerLicenciatura();
+       },
+       error => console.log(error)
+     );
+     }
   }
   editarLicencia(licencia:ILicencia)
   {
