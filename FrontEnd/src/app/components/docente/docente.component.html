@@ -155,7 +155,9 @@
                     <input formControlName="sexo" placeholder="Ingrese el sexo" type="text" class="form-control">
                 </div>
                 <div class="form-group">
-                    <input formControlName="lugar_de_nacimiento" placeholder="Ingrese el lugar de nacimiento" type="text" class="form-control">
+                    <select class="form-control">
+                    <option *ngFor= "let localidad of listarLocalidad">{{localidad.descripcion}}</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <input formControlName="fecha_ingreso_adm" placeholder="Ingrese fecha ingreso administracion" type="text" class="form-control">

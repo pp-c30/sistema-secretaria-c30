@@ -6,6 +6,10 @@ import { IDocente } from 'src/app/models/Docente';
 
 import { FormBuilder, FormGroup, Form, Validators } from '@angular/forms';
 
+import { ILocalidad } from "src/app/models/Localidad";
+
+import { LocalidadService } from "../../services/localidad.service";
+
 
 @Component({
   selector: 'app-docente',
@@ -22,8 +26,10 @@ export class DocenteComponent implements OnInit {
 
   p:number = 1;
 
+  listarLocalidad: ILocalidad[]= [];
+
   // construccion del formulario utilizando el formbuilder y el fb group
-  constructor(private docenteServ: DocenteService, private fb: FormBuilder)
+  constructor(private docenteServ: DocenteService, private fb: FormBuilder, private localidadServ: LocalidadService)
   {
     this.formDocente = this.fb.group({
 
@@ -74,7 +80,16 @@ export class DocenteComponent implements OnInit {
   {
 
     this.obtenerDocente();
+    this.obtenerLocalidad();
 
+  }
+
+  obtenerLocalidad(){
+    this.localidadServ.getLocalidad().subscribe(
+      respuesta => {
+        this.listarLocalidad = respuesta;
+      }
+    )
   }
 
   obtenerDocente()

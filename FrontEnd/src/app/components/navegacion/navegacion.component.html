@@ -11,26 +11,30 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
+                <a class="nav-link" routerLink="index">Inicio<span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="docente">Docentes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="designacion">Designacion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="asignatura">Asignatura</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="licenciatura">Licencias</a>
+              </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Formularios
         </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" routerLink="asignatura">Asignatura</a>
-                    <a class="dropdown-item" routerLink="designacion">Designacion</a>
-                    <a class="dropdown-item" routerLink="docente">Docentes</a>
-                    <a class="dropdown-item" routerLink="licenciatura">Licencias</a>
                     <a class="dropdown-item" routerLink="localidad">Localidad</a>
                     <a class="dropdown-item" routerLink="personasacargo">Personas a cargo</a>
                     <a class="dropdown-item" routerLink="provincias">Provincia</a>
                 </div>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control  mr-sm-2" type="search" placeholder="Buscar tabla" aria-label="Search" b>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
     </div>
 </nav>
