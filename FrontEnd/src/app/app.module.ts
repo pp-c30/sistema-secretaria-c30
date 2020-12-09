@@ -17,6 +17,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatBadgeModule} from '@angular/material/badge';
+import { Ng2SearchPipeModule } from "ng2-search-filter";
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import {MatBadgeModule} from '@angular/material/badge';
     FormsModule,
     AngularEditorModule,
     NgbModule,
-    MatBadgeModule
+    MatBadgeModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
