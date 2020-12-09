@@ -6,9 +6,9 @@ import { ILocalidad } from 'src/app/models/Localidad';
 
 import { FormBuilder, FormGroup, Form } from '@angular/forms';
 
-import { IProvincia } from 'src/app/models/provincia';
+import { IProvincias } from 'src/app/models/Provincias';
 
-import { ProvinciaService } from '../../services/provincias.services';
+import { ProvinciasService } from '../../services/provincias.service';
 
 @Component({
   selector: 'app-localidad',
