@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { DesignacionService } from "../../services/designacion.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { IDesignacion } from "src/app/models/Designacion";
+import { DocenteService } from "src/app/services/docente.service";
+import { IDocente } from "src/app/models/Docente";
+import { AsignaturaService } from "src/app/services/asignatura.service";
+import { IAsignatura } from "src/app/models/Asignatura";
 
 @Component({
   selector: 'app-designacion',
@@ -9,16 +13,17 @@ import { IDesignacion } from "src/app/models/Designacion";
   styleUrls: ['./designacion.component.css']
 })
 export class DesignacionComponent implements OnInit {
-
+  listAsignatura:IAsignatura [] = [];
+  listDocente:IDocente [] = [];
   listDesignacion:IDesignacion [] = [];
   formDesignacion: FormGroup;
   buscarDesignacion:any;
-  n:number;
-  constructor(private designacionServ:DesignacionService, private fb: FormBuilder) {
+  lean:number = 1;
+  constructor(private designacionServ:DesignacionService, private fb: FormBuilder, private asignaturaServ:AsignaturaService, private docenteServ:DocenteService) {
     this.formDesignacion = this.fb.group({
 
       id_designacion:[''],
-      id_docente:['',[Validators.required]],
+      id_docente:[null,[Validators.required]],
       id_asignatura:['',[Validators.required]],
       fecha_designacion:['',[Validators.required]],
       situacion_revista:['',[Validators.required]],
@@ -34,6 +39,8 @@ export class DesignacionComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.obtenerAsignatura();
+    this.obtenerDocente();
     this.listarDesignacion();
   }
 
@@ -44,7 +51,7 @@ export class DesignacionComponent implements OnInit {
       error => console.log(error)
     )
   }
- guardadDesignacion()
+ guardarDesignacion()
  {
    if(this.formDesignacion.value.id_designacion)
    {
@@ -84,4 +91,18 @@ export class DesignacionComponent implements OnInit {
      );
    }
  }
+ obtenerDocente(){
+   this.docenteServ.getDocente().subscribe(
+     resultado => {
+       this.listDocente = resultado;
+     }
+   )
+ }
+ obtenerAsignatura(){
+  this.asignaturaServ.getAsignatura().subscribe(
+    resultado => {
+      this.listAsignatura = resultado;
+    }
+  )
+}
 }
