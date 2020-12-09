@@ -14,6 +14,7 @@ const database_1 = require("../database");
 class Personas_acargoController {
     crearPersonas_acargo(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            req.body.fecha_nacimiento = req.body.fecha_nacimiento.year + "-" + req.body.fecha_nacimiento.month + "-" + req.body.fecha_nacimiento.day;
             //recibo los datos enviados
             let personas_acargo = req.body;
             //conecto con la base de datos
@@ -45,7 +46,7 @@ class Personas_acargoController {
         return __awaiter(this, void 0, void 0, function* () {
             //conecto con la base
             const lean = yield database_1.conexion();
-            let personas_acargo = yield lean.query('select *, DATE_FORMAT(fecha_nacimiento, "%d/%m/%Y") as fecha_nacimiento from personas_acargo');
+            let personas_acargo = yield lean.query('select *, DATE_FORMAT(fecha_nacimiento, "%d/%m/%Y") as fecha_nacimiento, DATE_FORMAT(fecha_nacimiento, "%d") as day,DATE_FORMAT(fecha_nacimiento, "%m") as month, DATE_FORMAT(fecha_nacimiento, "%Y") as year from personas_acargo');
             res.json(personas_acargo[0]);
         });
     }

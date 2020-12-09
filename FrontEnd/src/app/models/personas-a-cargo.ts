@@ -9,7 +9,14 @@ export interface IPersonas_acargo {
 
     dni: string;
 
-    fecha_nacimiento: Date;
+    fecha_nacimiento: any;
 
     familiar_acargo: string;
+
+    day: number;
+
+    month: number;
+
+    year: number;
+
 }

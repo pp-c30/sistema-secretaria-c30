@@ -4,7 +4,7 @@ import { DocenteService } from '../../services/docente.service';
 
 import { IDocente } from 'src/app/models/Docente';
 
-import { FormBuilder, FormGroup, Form } from '@angular/forms';
+import { FormBuilder, FormGroup, Form, Validators } from '@angular/forms';
 
 
 @Component({
@@ -18,6 +18,10 @@ export class DocenteComponent implements OnInit {
 
   formDocente: FormGroup ;
 
+  buscarDocente:any;
+
+  p:number = 1;
+
   // construccion del formulario utilizando el formbuilder y el fb group
   constructor(private docenteServ: DocenteService, private fb: FormBuilder)
   {
@@ -25,35 +29,35 @@ export class DocenteComponent implements OnInit {
 
       id_docente:[null],
 
-      nombre: [''],
+      nombre: ['',[Validators.required, Validators.minLength(3)] ],
 
-      apellido: [''],
+      apellido: ['',[Validators.required]],
 
-      fecha_nacimiento: [''],
+      fecha_nacimiento: ['',[Validators.required]],
 
-      legajo: [''],
+      legajo: ['',[Validators.required]],
 
-      legajo_recibo: [''],
+      legajo_recibo: ['',[Validators.required]],
 
-      dni: [''],
+      dni: ['',[Validators.required]],
 
-      cuit: [''],
+      cuit: ['',[Validators.required]],
 
-      telefono: [''],
+      telefono: ['',[Validators.required]],
 
-      correo: [''],
+      correo: ['',[Validators.required]],
 
-      domicilio: [''],
+      domicilio: ['',[Validators.required]],
 
-      nacionalidad: [''],
+      nacionalidad: ['',[Validators.required]],
 
-      sexo: [''],
+      sexo: ['',[Validators.required]],
 
-      lugar_de_nacimiento: [null],
+      lugar_de_nacimiento: [null,[Validators.required]],
 
-      fecha_ingreso_adm: [''],
+      fecha_ingreso_adm: ['',[Validators.required]],
 
-      estado_civil: [''],
+      estado_civil: ['',[Validators.required]],
 
       conyuge: [''],
 

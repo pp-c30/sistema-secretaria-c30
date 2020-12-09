@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Form } from "@angular/forms";
+import { Form } from '@angular/forms';
 
 @Component({
   selector: 'app-navegacion',

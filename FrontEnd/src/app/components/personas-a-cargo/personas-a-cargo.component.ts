@@ -72,6 +72,7 @@ export class PersonasACargoComponent implements OnInit {
         resultado => {
           console.log(resultado);
           this.obtenerPersonas_acargo();
+          this.formPersonas_acargo.reset();
         },
         error => console.log(error)
       );
@@ -80,6 +81,8 @@ export class PersonasACargoComponent implements OnInit {
     // tslint:disable-next-line: variable-name
     editarPersonas_acargo(personas_acargo: IPersonas_acargo)
     {
+      // tslint:disable-next-line: max-line-length
+      personas_acargo.fecha_nacimiento = {year: Number(personas_acargo.year), month: Number(personas_acargo.month), day: Number(personas_acargo.day)};
       this.formPersonas_acargo.setValue(personas_acargo);
     }
 

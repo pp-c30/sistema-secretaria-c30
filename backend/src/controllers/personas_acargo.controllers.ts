@@ -9,6 +9,8 @@ export class Personas_acargoController
 
     public async crearPersonas_acargo(req:Request, res:Response)
     {
+        req.body.fecha_nacimiento = req.body.fecha_nacimiento.year + "-" + req.body.fecha_nacimiento.month + "-" + req.body.fecha_nacimiento.day; 
+
         //recibo los datos enviados
         let personas_acargo:IPersonas_acargo = req.body;
     
@@ -52,7 +54,7 @@ export class Personas_acargoController
         //conecto con la base
         const lean = await conexion();
 
-        let personas_acargo = await lean.query('select *, DATE_FORMAT(fecha_nacimiento, "%d/%m/%Y") as fecha_nacimiento from personas_acargo');
+        let personas_acargo = await lean.query('select *, DATE_FORMAT(fecha_nacimiento, "%d/%m/%Y") as fecha_nacimiento, DATE_FORMAT(fecha_nacimiento, "%d") as day,DATE_FORMAT(fecha_nacimiento, "%m") as month, DATE_FORMAT(fecha_nacimiento, "%Y") as year from personas_acargo');
 
         res.json(personas_acargo[0]);
 
