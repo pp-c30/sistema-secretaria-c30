@@ -41,9 +41,9 @@ class DesignacionController {
         return __awaiter(this, void 0, void 0, function* () {
             //metodo UPDATE
             let id_designacion = req.params.id;
-            let IDesignacion = req.body;
+            let designacion = req.body;
             let con = yield database_1.conexion();
-            yield con.query('update designacion set ? where id_designacion= ?', [IDesignacion, id_designacion]);
+            yield con.query('update designacion set ? where id_designacion = ?', [designacion, id_designacion]);
             return res.json('La asignacion se a actualizado exitosamente');
         });
     }

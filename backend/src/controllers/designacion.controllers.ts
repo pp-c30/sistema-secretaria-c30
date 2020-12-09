@@ -11,8 +11,8 @@ export class DesignacionController
     {
         //conecto con la base
         const con = await conexion();
-
-        let designacion = await con.query('select * from designacion');
+        //fijarse lo de la fecha y hora con delfor 
+        let designacion = await con.query('select * ,date_format(fecha_inicio,"%d/%m/%Y") as fecha_inicio, as fecha_final, as fecha_designacion from designacion');
 
         return res.json(designacion[0]);
 
@@ -50,11 +50,11 @@ export class DesignacionController
 
         let id_designacion = req.params.id;
 
-        let IDesignacion = req.body;
+        let designacion = req.body;
 
         let con = await conexion();
 
-        await con.query('update designacion set ? where id_designacion= ?', [IDesignacion, id_designacion]);
+        await con.query('update designacion set ? where id_designacion = ?', [designacion, id_designacion]);
 
         return res.json('La asignacion se a actualizado exitosamente');
     }
