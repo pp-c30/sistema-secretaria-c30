@@ -11,10 +11,14 @@ export class ProvinciaController
 
         
         let lean = await conexion();
+      //consulta si otra tabla la esta utilizando y si es asi, no se elimina
+        try {
+            await lean.query('delete from provincia where id_provincia = ?',[id_provincia]);
+            return res.json("Provincia eliminada");
 
-        await lean.query('delete from provincia where id_provincia = ?',id_provincia);
-
-        return res.json('Se elimino la provincia');
+        } catch (error) {
+           return res.json("No se puede eliminar una provincia que este siendo utilizada")
+        }
     }
 
     

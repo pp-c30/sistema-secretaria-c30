@@ -1,5 +1,15 @@
 <div class="row">
     <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <input placeholder="Buscar" [(ngModel)]="buscarDocente" type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-12">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Nuevo docente
           </button>
@@ -30,7 +40,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let docente of ListarDocente">
+                <tr *ngFor="let docente of ListarDocente | filter:buscarDocente | paginate:{itemsPerPage:6, currentPage:p}">
 
                     <td>{{docente.id_docente}}</td>
 
@@ -81,6 +91,11 @@
                 </tr>
             </tbody>
         </table>
+        <div class="row">
+            <div class="col-sm-4">
+                <pagination-controls (pageChange)="p =$event"></pagination-controls>
+            </div>
+        </div>
     </div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -92,7 +107,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form [formGroup]="formDocente" (ngSubmit)="guardarDocente()">
+        <form [formGroup]="formDocente" (ngSubmit)="guardarDocente()" novalidate>
         <div class="modal-body">
 
                 <div class="form-group">
@@ -100,7 +115,11 @@
                 </div>
 
                 <div class="form-group">
-                    <input formControlName="nombre" placeholder="Ingrese el Nombre" type="text" class="form-control">
+                    <input [ngClass]="{'is-invalid':(formDocente.get('nombre')?.touched || formDocente.get('nombre')?.dirty) && formDocente.get('nombre')?.invalid }" formControlName="nombre" placeholder="Ingrese el Nombre" type="text" class="form-control">
+                    <div class="invalid-feedback">
+                        <span *ngIf="formDocente.get('nombre').hasError('required')">Campo requerido</span>
+                        <span *ngIf="!formDocente.get('nombre').hasError('minLength')">Minimo 3 caracteres</span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <input  formControlName="apellido" placeholder="Ingrese el Apellido" type="text" class="form-control">
@@ -136,7 +155,9 @@
                     <input formControlName="sexo" placeholder="Ingrese el sexo" type="text" class="form-control">
                 </div>
                 <div class="form-group">
-                    <input formControlName="lugar_de_nacimiento" placeholder="Ingrese el lugar de nacimiento" type="text" class="form-control">
+                    <select class="form-control">
+                    <option *ngFor= "let localidad of listarLocalidad">{{localidad.descripcion}}</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <input formControlName="fecha_ingreso_adm" placeholder="Ingrese fecha ingreso administracion" type="text" class="form-control">
@@ -160,7 +181,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button class="btn btn-success" id="alerta">Guardar</button>
+          <button [disabled]="formDocente.invalid" class="btn btn-success" id="alerta">Guardar</button>
         </div>
     </form>
       </div>

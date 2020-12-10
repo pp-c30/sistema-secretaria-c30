@@ -9,14 +9,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProvinciaController = void 0;
 const database_1 = require("../database");
 class ProvinciaController {
     eliminarProvincia(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let id_provincia = req.params.id;
             let lean = yield database_1.conexion();
-            yield lean.query('delete from provincia where id_provincia = ?', id_provincia);
-            return res.json('Se elimino la provincia');
+            //consulta si otra tabla la esta utilizando y si es asi, no se elimina
+            try {
+                yield lean.query('delete from provincia where id_provincia = ?', [id_provincia]);
+                return res.json("Provincia eliminada");
+            }
+            catch (error) {
+                return res.json("No se puede eliminar una provincia que este siendo utilizada");
+            }
         });
     }
     listaProvincia(req, res) {
