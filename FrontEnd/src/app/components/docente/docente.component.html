@@ -107,11 +107,11 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form [formGroup]="formDocente" (ngSubmit)="guardarDocente()" novalidate>
+        <form [formGroup]="formDocente" (ngSubmit)="guardarDocente()">
         <div class="modal-body">
 
                 <div class="form-group">
-                    <input formControlName="id_docente" type="text" class="form-control">
+                    <input formControlName="id_docente" type="hidden" class="form-control">
                 </div>
 
                 <div class="form-group">
@@ -156,7 +156,8 @@
                 </div>
                 <div class="form-group">
                     <select class="form-control">
-                    <option *ngFor= "let localidad of listarLocalidad">{{localidad.descripcion}}</option>
+                    <option value="0" disabled selected>Seleccionar localidad</option>
+                    <option *ngFor= "let localidad of listarLocalidad" value={{localidad.descripcion}}>{{localidad.descripcion}}</option>
                     </select>
                 </div>
                 <div class="form-group">

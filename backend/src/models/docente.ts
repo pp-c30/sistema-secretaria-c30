@@ -37,6 +37,6 @@ export interface IDocente{
 
     fecha_n_conyuge?:Date;
 
-    familiar_acargo?:string;
+    familiar_acargo?:number;
 
 }
