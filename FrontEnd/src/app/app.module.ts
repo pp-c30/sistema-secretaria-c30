@@ -17,8 +17,6 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatBadgeModule} from '@angular/material/badge';
 //terminar de ver video de delfor para importar el filtrador de provincia
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { LayoutModule } from '@angular/cdk/layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
@@ -44,8 +42,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularEditorModule,
     NgbModule,
     MatBadgeModule,
-    Ng2SearchPipeModule,
-    NgxPaginationModule,
     BrowserAnimationsModule,
     LayoutModule,
   ],
