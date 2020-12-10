@@ -122,6 +122,7 @@ export class DocenteComponent implements OnInit {
         console.log(resultado);
         //refresca la grilla
         this.obtenerDocente();
+        this.formDocente.reset();
       },
       error => console.log(error)
     );

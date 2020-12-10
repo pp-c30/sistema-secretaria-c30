@@ -61,6 +61,19 @@ guardarLocalidad()
       error => console.log(error)
       )
   }
+  else{
+
+    //mando el save docente al form docente
+    this.localidadServ.saveLocalidad(this.formLocalidad.value).subscribe(
+     resultado => {
+       console.log(resultado);
+       //refresca la grilla
+       this.obtenerLocalidad();
+       this.formLocalidad.reset();
+     },
+     error => console.log(error)
+   );
+   }
 }
   //traigo tood lo de IDocente para poderlo editar
   editarLocalidad(localidad:ILocalidad)
