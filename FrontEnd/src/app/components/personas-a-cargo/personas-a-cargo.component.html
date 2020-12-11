@@ -5,6 +5,15 @@
 
 <div class="row">
     <div class="col-sm-8">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <input placeholder="Ingrese criterio de Búsqueda" [(ngModel)]="buscarPersonas_acargo" type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+
         <table class="table table-Primary">
             <thead>
                 <tr class="table-danger">
@@ -18,7 +27,7 @@
             </thead>
             <br>
             <tbody>
-                <tr *ngFor="let personas_acargo of listarPersonas_acargo">
+                <tr *ngFor="let personas_acargo of listarPersonas_acargo | filter:buscarPersonas_acargo">
 
                     <td>{{personas_acargo.nombre}}</td>
 
