@@ -28,7 +28,7 @@
             </thead>
             <br>
             <tbody>
-                <tr *ngFor="let asignatura of listaAsignatura | filter:buscarAsignatura">
+                <tr *ngFor="let asignatura of listaAsignatura | filter:buscarAsignatura | paginate:{itemsPerPage:3, currentPage: p}">
 
                     <td>{{asignatura.descripcion}}</td>
 
@@ -60,6 +60,11 @@
                 </tr>
             </tbody>
         </table>
+        <div class="row">
+            <div class="col-sm-4">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
     </div>
 
     <div class="col-sm-4">

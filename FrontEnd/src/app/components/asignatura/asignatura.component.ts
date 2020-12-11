@@ -21,7 +21,8 @@ export class AsignaturaComponent implements OnInit {
   // tslint:disable-next-line: variable-name
   buscarAsignatura: any;
   // tslint:disable-next-line: ban-types
-  l: Number = 1;
+  p: number = 1;
+
   constructor(private asignaturaServ: AsignaturaService, private fb: FormBuilder) {
     this.formAsignatura = this.fb.group({
       id_asignatura: [null],

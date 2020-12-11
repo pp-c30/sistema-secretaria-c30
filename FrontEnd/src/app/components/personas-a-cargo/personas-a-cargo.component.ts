@@ -26,7 +26,7 @@ export class PersonasACargoComponent implements OnInit {
   // tslint:disable-next-line: variable-name
   buscarPersonas_acargo: any;
   // tslint:disable-next-line: ban-types
-  l: Number = 1;
+  p: number = 1;
 
   // tslint:disable-next-line: variable-name
   constructor(private personas_acargoServ: Personas_acargoService, private fb: FormBuilder) {
