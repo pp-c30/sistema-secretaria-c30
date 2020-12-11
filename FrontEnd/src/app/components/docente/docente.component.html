@@ -48,7 +48,7 @@
 
                     <td>{{docente.apellido}}</td>
 
-                    <td>{{docente.fecha_nacimiento}}</td>
+                    <td>{{docente.fn_formateada}}</td>
 
                     <td>{{docente.legajo}}</td>
 
@@ -66,21 +66,53 @@
 
                     <td>{{docente.nacionalidad}}</td>
 
-                    <td>{{docente.sexo}}</td>
+                    <td>
+                        <div *ngIf="docente.sexo=='Hombre'; else loggedOut">
+                            <h3><span class="badge badge-primary">Hombre</span></h3>
+                          </div>
+                          
+                          <ng-template #loggedOut>
+                            <h3><span class="badge badge-success">Mujer</span></h3>
+                          </ng-template>
+                    </td>
 
                     <td>{{docente.lugar_de_nacimiento}}</td>
 
-                    <td>{{docente.fecha_ingreso_adm}}</td>
+                    <td>{{docente.fia_formateada}}</td>
 
-                    <td>{{docente.estado_civil}}</td>
+                    <td>
+                        <div *ngIf="docente.estado_civil==0; else loggedOut">
+                            <h3><span class="badge badge-primary">Soltero.</span></h3>
+                          </div>
+                          
+                          <ng-template #loggedOut>
+                            <h3><span class="badge badge-success">Casado.</span></h3>
+                          </ng-template>
+                    </td>
 
-                    <td>{{docente.conyuge}}</td>
+                    <td>
+                        <div *ngIf="docente.conyuge==0; else loggedOut">
+                             <h3><span class="badge badge-primary">No</span></h3>
+                            </div>
+                              
+                            <ng-template #loggedOut>
+                            <h3><span class="badge badge-success">Si</span></h3>
+                            </ng-template>
+                    </td>
 
-                    <td>{{docente.fecha_n_conyuge}}</td>
+                    <td>{{docente.cuil_conyuge}}</td>
 
-                    <td>{{docente.fecha_n_conyuge}}</td>
+                    <td>{{docente.fnc_formateada}}</td>
 
-                    <td>{{docente.familiar_acargo}}</td>
+                    <td>
+                        <div *ngIf="docente.familiar_acargo==0; else loggedOut">
+                            <h3><span class="badge badge-primary">No.</span></h3>
+                          </div>
+                          
+                          <ng-template #loggedOut>
+                            <h3><span class="badge badge-success">Casado.</span></h3>
+                          </ng-template>
+                    </td>
                     
                     <td>
                         <div class="btn-group btn-group-sm">
@@ -155,9 +187,9 @@
                     <input formControlName="sexo" placeholder="Ingrese el sexo" type="text" class="form-control">
                 </div>
                 <div class="form-group">
-                    <select class="form-control">
-                    <option value="0" disabled selected>Seleccionar localidad</option>
-                    <option *ngFor= "let localidad of listarLocalidad" value={{localidad.descripcion}}>{{localidad.descripcion}}</option>
+                    <select class="form-control" formControlName="lugar_de_nacimiento">
+                    <option value="0" disabled selected>Seleccionar lugar de nacimiento</option>
+                    <option *ngFor= "let localidad of listarLocalidad" value={{localidad.id_localidad}}>{{localidad.descripcion}}</option>
                     </select>
                 </div>
                 <div class="form-group">
