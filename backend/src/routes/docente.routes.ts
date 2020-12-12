@@ -2,11 +2,13 @@ import { Router } from "express";
 
 import { DocenteController } from "../controllers/docente.controllers";
 
+import { validarToken } from "../libs/verificarToken";
+
 const enrutadorDocente = Router();
 
 let docenteController = new DocenteController();
 
-enrutadorDocente.route('/docente').get(docenteController.listaDocente);
+enrutadorDocente.route('/docente').get(validarToken,docenteController.listaDocente);
 
 enrutadorDocente.route('/docente').post(docenteController.crearDocente);
 
