@@ -7,7 +7,7 @@ export class AutenticacionController
 {
     async registrar(req:Request, res:Response)
     {
-        const salt = await bcrypt.genSalt(10);
+        const salt = await bcrypt.genSalt(10) ;
 
         const password_cifrado = await bcrypt.hash(req.body.password,salt)
 

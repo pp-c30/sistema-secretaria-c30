@@ -1,0 +1,17 @@
+.pepe{
+
+    bottom: 0;
+    background:white;
+    color:rgb(0, 0, 0);
+    height: 10%;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+
+}
+i{
+
+    font-size:x-large;
+    font-weight: 800;
+}
