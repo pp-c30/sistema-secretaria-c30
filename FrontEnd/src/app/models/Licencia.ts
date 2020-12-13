@@ -2,9 +2,9 @@ export interface ILicencia {
 
     id_licencia?: number;
 
-    id_docente: string;
+    id_docente: Date;
 
-    licencia_desde: string;
+    licencia_desde: number;
 
     id_asignatura: string;
 
@@ -12,7 +12,7 @@ export interface ILicencia {
 
     n_resolucion: string;
 
-    fecha_alta_suplente: string;
+    fecha_alta_suplente: number;
 
     fecha_baja_suplente: number;
 

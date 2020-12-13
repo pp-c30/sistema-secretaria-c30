@@ -17,6 +17,10 @@ export class LicenciaturaComponent implements OnInit {
 
   formLicencia: FormGroup ;
 
+  buscarLicencia:any;
+
+  p:number = 1;
+
   constructor(private licenciaServ: LicenciaturaService, private fb: FormBuilder) 
   { 
     this.formLicencia = this.fb.group

@@ -14,7 +14,7 @@ export interface ILicencias
 
     fecha_alta_suplente: Date;
 
-    fecha_baja_suplente: string;
+    fecha_baja_suplente: Date;
 
     estado_licencia: string;
 }

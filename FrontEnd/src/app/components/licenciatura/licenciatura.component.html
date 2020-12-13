@@ -23,7 +23,7 @@
 
                     <td>{{licencia.id_docente}}</td>
 
-                    <td>{{licencia.licencia_desde}}</td>
+                    <td>{{licencia.l_formateada}}</td>
 
                     <td>{{licencia.id_asignatura}}</td>
 
@@ -31,9 +31,9 @@
 
                     <td>{{licencia.n_resolucion}}</td>
 
-                    <td>{{licencia.fecha_alta_suplente}}</td>
+                    <td>{{licencia.fas_formateada}}</td>
 
-                    <td>{{licencia.fecha_baja_suplente}}</td>
+                    <td>{{licencia.fbs_formateada}}</td>
 
                     <td>{{licencia.estado_licencia}}</td>
 
@@ -46,6 +46,10 @@
                 </tr>
             </tbody>
         </table>
+        <div class="row">
+            <div class="col-sm-4">
+                <pagination-controls (pageChange)="p =$event"></pagination-controls>
+            </div>
     </div>
     
     <div class="col-sm-4">

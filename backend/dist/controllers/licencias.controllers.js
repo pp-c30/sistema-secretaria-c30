@@ -9,13 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.LicenciasControllers = void 0;
 const database_1 = require("../database");
 class LicenciasControllers {
     listaLicencias(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             //conecto con la base
             const con = yield database_1.conexion();
-            let licencias = yield con.query('select * from licencias');
+            let licencias = yield con.query('select *,date_format(fecha_alta_suplente, "%d/%m/%Y") as fas_formateada,date_format(fecha_baja_suplente, "%d/%m/%Y") as fbs_formateada,date_format(licencia_desde, "%d/%m/%Y") as l_formateada  from licencias');
             return res.json(licencias[0]);
         });
     }

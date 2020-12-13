@@ -11,7 +11,7 @@ export class LicenciasControllers
         //conecto con la base
         const con = await conexion();
 
-        let licencias = await con.query('select * from licencias');
+        let licencias = await con.query('select *,date_format(fecha_alta_suplente, "%d/%m/%Y") as fas_formateada,date_format(fecha_baja_suplente, "%d/%m/%Y") as fbs_formateada,date_format(licencia_desde, "%d/%m/%Y") as l_formateada  from licencias');
 
         return res.json(licencias[0]);
 

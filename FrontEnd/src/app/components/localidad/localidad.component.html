@@ -1,6 +1,10 @@
 <div class="row">
-
     <div class="col-sm-8">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <input placeholder="Buscar" [(ngModel)]="buscarProvincia" type="text" class="form-control">
+            </div>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr class="table-primary">
@@ -11,7 +15,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let localidad of ListarLocalidad">
+                <tr *ngFor="let localidad of ListarLocalidad | filter:buscarProvincia | paginate:{itemsPerPage:6, currentPage:p}">
 
                     <td>{{localidad.id_localidad}}</td>
 
@@ -36,7 +40,11 @@
                     <form [formGroup]="formLocalidad" (ngSubmit)="guardarLocalidad()">
     
                         <div class="form-group">
-                            <input formControlName="id_localidad"  type="hidden" class="form-control">
+                            <input [ngClass]="{'is-invalid':(formLocalidad.get('descripcion')?.touched || formLocalidad.get('descripcion')?.dirty) && formLocalidad.get('descripcion')?.invalid }" formControlName="id_localidad"  type="hidden" class="form-control">
+                            <div class="invalid-feedback">
+                                <span *ngIf="formLocalidad.get('descripcion').hasError('required')">Campo requerido</span>
+                                <span *ngIf="!formLocalidad.get('descripcion').hasError('minLength')">Minimo 3 caracteres</span>
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -44,13 +52,14 @@
                         </div>
 
                         <div class="form-group">
-                            <input formControlName="id_provincia" placeholder="Ingrese Provincia" type="text" class="form-control">
+                            <select class="form-control" formControlName="id_provincia">
+                                <option value="0" disabled selected>Seleccionar Provincia</option>
+                                <option *ngFor= "let localidad of listarProvincia" value={{localidad.id_provincia}}>{{localidad.descripcion}}</option>
+                                </select>    
                         </div>
-
-                        <button class="btn btn-success" id="alerta">Guardar</button>
+                        <button [disabled]="formLocalidad.invalid" class="btn btn-success" id="alerta">Guardar</button>
                     </form>
                 </div>
         </div>
     </div>
-    
 </div>
