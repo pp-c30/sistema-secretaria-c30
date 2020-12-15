@@ -17,7 +17,7 @@ class DesignacionController {
             //conecto con la base
             const con = yield database_1.conexion();
             //fijarse lo de la fecha y hora con delfor 
-            let designacion = yield con.query('select * ,date_format(fecha_inicio,"%d/%m/%Y") as fecha_inicio, as fecha_final, as fecha_designacion from designacion');
+            let designacion = yield con.query('select *, DATE_FORMAT(fecha_final, fecha_inicio, "%d/%m/%Y") as fecha_inicio, as fecha_final from designacion');
             return res.json(designacion[0]);
         });
     }
