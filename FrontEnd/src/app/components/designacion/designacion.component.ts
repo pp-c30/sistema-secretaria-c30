@@ -14,7 +14,7 @@ import { IAsignatura } from "src/app/models/Asignatura";
 })
 export class DesignacionComponent implements OnInit {
   listAsignatura:IAsignatura [] = [];
-  listDocente:IDocente [] = [];
+  listarDocente:IDocente [] = [];
   listDesignacion:IDesignacion [] = [];
   formDesignacion: FormGroup;
   buscarDesignacion:any;
@@ -94,7 +94,7 @@ export class DesignacionComponent implements OnInit {
  obtenerDocente(){
    this.docenteServ.getDocente().subscribe(
      resultado => {
-       this.listDocente = resultado;
+       this.listarDocente = resultado;
      }
    )
  }

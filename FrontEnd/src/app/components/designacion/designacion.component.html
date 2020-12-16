@@ -71,15 +71,15 @@
                      <div class="form-group">
                         <input  formControlName="id_designacion" placeholder="Ingrese la designacion" type="text" class="form-control">
                      </div>     
-                         <div class="form-group">
-                         <select class="form-control" id="exampleFormControlSelect1" [ngClass]="{'is-invalid': (formDesignacion.get('id_docente')?.touched || formDesignacion.get('id_docente')?.dirty) && formDesignacion.get('id_docente')?.invalid }" formControlName="id_docente"> 
-                            <option value="" disabled >Seleccione un docente </option>
-                            <option *ngFor="let id_docente of listDocente" [value]="id_docente.id_docente"> {{id_docente.nombre}}</option>
+                     <div class="form-group">
+                        <select class="form-control" formControlName="id_docente">
+                        <option value="0" disabled selected>Seleccionar lugar de nacimiento</option>
+                        <option *ngFor= "let docente of listarDocente" value={{docente.docente}}>{{docente.nombre}}</option>
                         </select>
-                        <div class="invalid-feedback">
+                   
                             <span *ngIf="formDesignacion.get('id_docente').hasError('required')">Campo requerido</span>
                         </div>
-                    </div>
+                    
                     <div class="form-group" >   
                         <input  formControlName="id_asignatura" placeholder="Ingrese la asignatura " type="text" class="form-control">
                     </div>
