@@ -8,7 +8,8 @@ import { LocalidadComponent } from './/components/localidad/localidad.component'
 import { PersonasACargoComponent } from './/components/personas-a-cargo/personas-a-cargo.component';
 import { IndexComponent } from './/components/index/index.component';
 import { DocenteComponent } from './/components/docente/docente.component';
-
+import { IngresoComponent } from ".//components/ingreso/ingreso.component";
+import { RegistroComponent } from ".//components/registro/registro.component";
 const routes: Routes = [
 
   {
@@ -37,6 +38,12 @@ const routes: Routes = [
    },
    {
      path: 'personasacargo', component: PersonasACargoComponent,
+   },
+   {
+     path: 'ingreso', component: IngresoComponent,
+   },
+   {
+     path: 'registro', component: RegistroComponent,
    },
 
 ];
