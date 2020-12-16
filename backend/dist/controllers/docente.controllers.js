@@ -23,6 +23,9 @@ class DocenteController {
     crearDocente(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             //recibo datos mediante el metodo post
+            req.body.fecha_nacimiento = req.body.fecha_nacimiento.year + "-" + req.body.fecha_nacimiento.month + "-" + req.body.fecha_nacimiento.day;
+            req.body.fecha_ingreso_adm = req.body.fecha_ingreso_adm.year + "-" + req.body.fecha_ingreso_adm.month + "-" + req.body.fecha_ingreso_adm.day;
+            req.body.fecha_n_conyuge = req.body.fecha_n_conyuge.year + "-" + req.body.fecha_n_conyuge.month + "-" + req.body.fecha_n_conyuge.day;
             let docente = req.body;
             const con = yield database_1.conexion();
             yield con.query('insert into docente set ?', [docente]);

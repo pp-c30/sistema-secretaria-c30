@@ -36,8 +36,16 @@ class AutenticacionController {
     }
     ingresar(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            var usuario = [];
             const db = yield database_1.conexion();
-            const usuario = yield db.query('select *from usuario where username = ?'[req.body.username]);
+            db.query('select * from usuario where username = ?'[req.body.username], (err, results, fields) => {
+                if (err) {
+                    console.log('error in fetching data');
+                }
+                usuario = results;
+            });
+            //let usuario:any = await db.query('select * from usuario where username = ?'[req.body.username]);
+            //usuario = JSON.stringify(usuario);
             if (!usuario[0]) {
                 res.json('usuario o contraseña incorrecta');
             }
@@ -50,7 +58,7 @@ class AutenticacionController {
                     const token = jsonwebtoken_1.default.sign({ _id: usuario[0].id_usuario }, process.env.TOKEN_SECRET || '12qwaszx', {
                         expiresIn: 60 * 60 * 24
                     });
-                    res.header('auth-token', token).json(usuario[0]);
+                    res.json(token);
                 }
             }
         });
