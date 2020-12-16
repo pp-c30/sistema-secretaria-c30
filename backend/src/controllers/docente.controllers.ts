@@ -21,7 +21,10 @@ export class DocenteController
     public async crearDocente(req:Request,res:Response){
 
         //recibo datos mediante el metodo post
-    
+        req.body.fecha_nacimiento = req.body.fecha_nacimiento.year + "-" + req.body.fecha_nacimiento.month + "-" + req.body.fecha_nacimiento.day;
+        req.body.fecha_ingreso_adm = req.body.fecha_ingreso_adm.year + "-" + req.body.fecha_ingreso_adm.month + "-" + req.body.fecha_ingreso_adm.day;
+        req.body.fecha_n_conyuge = req.body.fecha_n_conyuge.year + "-" + req.body.fecha_n_conyuge.month + "-" + req.body.fecha_n_conyuge.day;
+
         let docente:IDocente = req.body;
     
         const con = await conexion();
