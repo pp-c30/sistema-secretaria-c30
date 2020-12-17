@@ -5,6 +5,7 @@ import { Personas_acargoService } from '../../services/personas-a-cargo.service'
 import { IPersonas_acargo } from 'src/app/models/personas-a-cargo';
 
 import { FormBuilder, FormGroup, Form, Validators } from '@angular/forms';
+import { Input } from '@angular/core';
 
 
 
@@ -17,6 +18,9 @@ import { FormBuilder, FormGroup, Form, Validators } from '@angular/forms';
 
 // tslint:disable-next-line: class-name
 export class PersonasACargoComponent implements OnInit {
+  
+  @Input() id_docente: number;
+
   [x: string]: any;
 
   // tslint:disable-next-line: variable-name
@@ -31,6 +35,7 @@ export class PersonasACargoComponent implements OnInit {
   // tslint:disable-next-line: variable-name
   constructor(private personas_acargoServ: Personas_acargoService, private fb: FormBuilder) {
     this.formPersonas_acargo = this.fb.group({
+      id_docente: [35],
       id_pc: [null],
       nombre: [''],
       apellido: [''],
@@ -46,11 +51,13 @@ export class PersonasACargoComponent implements OnInit {
 
     this.obtenerPersonas_acargo();
 
+
+    //this.formPersonas_acargo.get('id_docente').setValue(this.id_docente);
   }
 
   obtenerPersonas_acargo()
   {
-    this.personas_acargoServ.getPersonas_acargo().subscribe(
+    this.personas_acargoServ.getPersonas_acargo(this.id_docente).subscribe(
       resultado => this.listarPersonas_acargo = resultado,
       error => console.log(error));
   }

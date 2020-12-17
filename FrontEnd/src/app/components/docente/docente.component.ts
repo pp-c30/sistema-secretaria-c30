@@ -10,6 +10,10 @@ import { ILocalidad } from "src/app/models/Localidad";
 
 import { LocalidadService } from "../../services/localidad.service";
 
+import { Personas_acargoService } from '../../services/personas-a-cargo.service';
+
+//import { PersonasACargoComponent } from "../components/personas-a-cargo/personas-a-cargo.component";
+
 
 @Component({
   selector: 'app-docente',
@@ -18,18 +22,22 @@ import { LocalidadService } from "../../services/localidad.service";
 })
 export class DocenteComponent implements OnInit {
 
-  ListarDocente: IDocente[] = [];
+  public ListarDocente: IDocente[] = [];
 
   formDocente: FormGroup ;
 
   buscarDocente:any;
 
+  IdDocente:number;
+
   p:number = 1;
+
+  prueba:number = 3;
 
   listarLocalidad: ILocalidad[]= [];
 
   // construccion del formulario utilizando el formbuilder y el fb group
-  constructor(private docenteServ: DocenteService, private fb: FormBuilder, private localidadServ: LocalidadService)
+  constructor(private docenteServ: DocenteService, private fb: FormBuilder, private localidadServ: LocalidadService, private paService:Personas_acargoService /*, private personasCargo:PersonasACargoComponent*/)
   {
     this.formDocente = this.fb.group({
 
@@ -135,6 +143,16 @@ export class DocenteComponent implements OnInit {
     this.formDocente.setValue(docente)
   }
 
+  obtenerIdDocente (id_docente:number)
+  {
+    this.IdDocente = id_docente;
+
+    /*this.paService.getPersonas_acargo(id_docente).subscribe(
+      respuesta=>{
+        this.personasCargo.listarPersonas_acargo = respuesta;
+      }
+    )*/
+  }
 
   eliminarDocente(id:number)
   {

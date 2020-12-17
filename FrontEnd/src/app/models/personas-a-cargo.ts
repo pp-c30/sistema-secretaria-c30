@@ -19,4 +19,6 @@ export interface IPersonas_acargo {
 
     year: number;
 
+    id_docente:number;
+
 }

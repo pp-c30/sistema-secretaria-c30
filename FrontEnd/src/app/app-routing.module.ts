@@ -10,6 +10,7 @@ import { IndexComponent } from './/components/index/index.component';
 import { DocenteComponent } from './/components/docente/docente.component';
 import { IngresoComponent } from ".//components/ingreso/ingreso.component";
 import { RegistroComponent } from ".//components/registro/registro.component";
+import { SoporteComponent } from "./components/soporte/soporte.component";
 const routes: Routes = [
 
   {
@@ -45,6 +46,9 @@ const routes: Routes = [
    {
      path: 'registro', component: RegistroComponent,
    },
+   {
+     path: 'soporte', component: SoporteComponent
+   }
 
 ];
 
