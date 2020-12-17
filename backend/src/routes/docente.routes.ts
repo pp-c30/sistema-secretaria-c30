@@ -8,7 +8,7 @@ const enrutadorDocente = Router();
 
 let docenteController = new DocenteController();
 
-enrutadorDocente.route('/docente').get(validarToken,docenteController.listaDocente);
+enrutadorDocente.route('/docente').get(docenteController.listaDocente);
 
 enrutadorDocente.route('/docente').post(docenteController.crearDocente);
 
