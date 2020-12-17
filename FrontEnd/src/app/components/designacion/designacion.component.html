@@ -69,6 +69,7 @@
                 <div class="card-header">Formulario de Designacion</div>
                 <div class="card-body">
                     <form [formGroup]="formDesignacion" (ngSubmit)="guardarDesignacion()">
+                        <div class="modal-body">
                         <div class="form-group">
                             <input formControlName="id_designacion" type="hidden" class="form-control">
                         </div>
@@ -91,10 +92,10 @@
                             </select>
                                <span *ngIf="formDesignacion">Ingrese una asignatura     ↑</span>
                             </div>
-                    <div class="form-group" >
+                     <div class="form-group" >
                         <input formControlName="fecha_designacion" class="form-control" placeholder="ingrese fecha designacion: yyyy-mm-dd" type="date">
                         <span *ngIf="formDesignacion">Ingrese la fecha de designacion   ↑</span>
-                </div>
+                     </div>
                 <div class="form-group" >
                 <input  formControlName="situacion_revista" placeholder="Ingrese la situacion revista" type="text" class="form-control">
                     </div>
@@ -123,7 +124,10 @@
                     <div class="form-group" >
                     <input  formControlName="titulo" placeholder="Ingrese el titulo " type="text" class="form-control">
                     </div>
-                    <button sdisabled ="formDesignacion" class="btn btn-success" id="alerta">Guardar</button>
+                </div>
+                    <div class="modal-footer">
+                        <button [disabled]="formDesignacion.invalid" class="btn btn-success" id="alerta">Guardar</button>
+                      </div>
                 </form>
             </div>
         </div>
