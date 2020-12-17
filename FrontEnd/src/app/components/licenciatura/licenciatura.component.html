@@ -1,5 +1,10 @@
 <div class="jumbotron">
+<<<<<<< HEAD
     <h1 class="display-5">Licenciatura</h1>
+=======
+    <h1 class="display-5">Liciencias</h1>
+    <hr class="my-3">
+>>>>>>> 1efc24ca6fa0a798898bfb680c5486fa6548553e
 </div>
 <div class="row">
     <div class="col-sm-8">
@@ -52,14 +57,14 @@
             <div class="col-sm-4">
                 <pagination-controls (pageChange)="p =$event"></pagination-controls>
             </div>
-    </div>
-    
-    <div class="col-sm-4">
-        <div class="card">
-            <div class="card-header">Formulario de licencia</div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">Formulario de licencia</div>
                 <div class="card-body">
                     <form [formGroup]="formLicencia" (ngSubmit)="guardarLicencia()">
-    
+
 
                         <div class="form-group">
                             <input formControlName="id_docente" placeholder="Ingrese ID docente" type="text" class="form-control">
@@ -68,7 +73,7 @@
                         <div class="input-group">
                             <input formControlName="licencia_desde" class="form-control" placeholder="ingrese fecha inicio: yyyy-mm-dd" type="date">
                             <div class="input-group-append">
-        
+
                             </div>
                         </div>
 
@@ -87,13 +92,17 @@
                         <div class="input-group">
                             <input formControlName="fecha_alta" class="form-control" placeholder="ingrese fecha alta: yyyy-mm-dd" type="date">
                             <div class="input-group-append">
-        
+
                             </div>
                         </div>
 
                         <div class="input-group">
                             <input formControlName="fecha_baja_suplente" class="form-control" placeholder="ingrese fecha baja: yyyy-mm-dd" type="date">
                             <div class="input-group-append">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1efc24ca6fa0a798898bfb680c5486fa6548553e
                             </div>
                         </div>
 
@@ -104,6 +113,6 @@
                         <button class="btn btn-success" id="alerta">Guardar</button>
                     </form>
                 </div>
+            </div>
         </div>
     </div>
-</div>

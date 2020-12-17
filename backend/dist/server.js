@@ -12,7 +12,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Server = void 0;
 const express_1 = __importDefault(require("express"));
 const index_routes_1 = __importDefault(require("./routes/index.routes"));
 const licencias_routes_1 = __importDefault(require("./routes/licencias.routes"));
@@ -23,6 +22,7 @@ const localidad_routes_1 = __importDefault(require("./routes/localidad.routes"))
 const personas_acargo_routes_1 = __importDefault(require("./routes/personas_acargo.routes"));
 const asignatura_routes_1 = __importDefault(require("./routes/asignatura.routes"));
 const autenticacion_routes_1 = __importDefault(require("./routes/autenticacion.routes"));
+const soporte_routes_1 = __importDefault(require("./routes/soporte.routes"));
 const cors_1 = __importDefault(require("cors"));
 class Server {
     constructor() {
@@ -45,6 +45,7 @@ class Server {
         this.app.use(personas_acargo_routes_1.default);
         this.app.use(asignatura_routes_1.default);
         this.app.use(autenticacion_routes_1.default);
+        this.app.use(soporte_routes_1.default);
     }
     middleware() {
         //el servidor espera recibir los datos en formato json

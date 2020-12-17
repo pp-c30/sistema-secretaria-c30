@@ -18,6 +18,8 @@ import enrutadorAsignatura from "./routes/asignatura.routes";
 
 import  enrutadorAut  from "./routes/autenticacion.routes";
 
+import enrutadorSoporte from "./routes/soporte.routes";
+
 import cors from "cors";
 
 
@@ -51,6 +53,7 @@ export class Server{
         this.app.use(enrutadorPersonas_acargo);
         this.app.use(enrutadorAsignatura);
         this.app.use(enrutadorAut);
+        this.app.use(enrutadorSoporte);
 
     }
 
