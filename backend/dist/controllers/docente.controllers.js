@@ -16,7 +16,7 @@ class DocenteController {
         return __awaiter(this, void 0, void 0, function* () {
             //conecto con la base
             const con = yield database_1.conexion();
-            let docente = yield con.query('select *,date_format(fecha_nacimiento, "%d/%m/%Y") as fn_formateada,date_format(fecha_ingreso_adm, "%d/%m/%Y") as fia_formateada,date_format(fecha_n_conyuge, "%d/%m/%Y") as fnc_formateada from docente');
+            let docente = yield con.query('select *,  date_format(fecha_nacimiento, "%d/%m/%Y") as fn_formateada,date_format(fecha_ingreso_adm, "%d/%m/%Y") as fia_formateada,date_format(fecha_n_conyuge, "%d/%m/%Y") as fnc_formateada,(select descripcion from localidad where id_localidad = d.localidad) as localidad  from docente d ');
             return res.json(docente[0]);
         });
     }

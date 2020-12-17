@@ -23,6 +23,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistroComponent } from './components/registro/registro.component';
 import { IngresoComponent } from './components/ingreso/ingreso.component';
+import { SoporteComponent } from './components/soporte/soporte.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { IngresoComponent } from './components/ingreso/ingreso.component';
     NavegacionComponent,
     RegistroComponent,
     IngresoComponent,
+    SoporteComponent,
     
   ],
   imports: [
