@@ -74,6 +74,7 @@
                                     <input formControlName="id_designacion" type="hidden" class="form-control">
                                 </div>
 
+<<<<<<< HEAD
                                 <div class="form-group">
                                     <input formControlName="id_designacion" placeholder="Ingrese la designacion" type="text" class="form-control">
                                 </div>
@@ -167,3 +168,64 @@
             </div>
         </div>
     </div>
+=======
+                     <div class="form-group">
+                        <input  formControlName="id_designacion" placeholder="Ingrese la designacion" type="text" class="form-control">
+                     </div>     
+                     <div class="form-group">
+                        <select class="form-control" formControlName="id_docente">
+                        <option value="0" disabled selected>Seleccione un docente</option>
+                        <option *ngFor= "let docente of listarDocente" value={{docente.docente}}>{{docente.nombre}}</option>
+                        </select>
+                           <span *ngIf="formDesignacion">Campo requerido</span>
+                        </div>
+                    
+                        <div class="form-group">
+                            <select class="form-control" formControlName="id_asignatura">
+                            <option value="0" disabled selected>Seleccione una asignatura</option>
+                            <option *ngFor= "let id_asignatura of listAsignatura" value={{id_asignatura.id_asignatura}}>{{id_asignatura.descripcion}}</option>
+                            </select>
+                               <span *ngIf="formDesignacion">Ingrese una asignatura     ↑</span>
+                            </div>
+                     <div class="form-group" >
+                        <input formControlName="fecha_designacion" class="form-control" placeholder="ingrese fecha designacion: yyyy-mm-dd" type="date">
+                        <span *ngIf="formDesignacion">Ingrese la fecha de designacion    ↑</span>
+                     </div>
+                <div class="form-group" >
+                <input  formControlName="situacion_revista" placeholder="Ingrese la situacion revista" type="text" class="form-control">
+                    </div>
+                    <div class="form-group" >
+                    <input  formControlName="en_remplazo" placeholder="Ingrese reemplazo" type="text" class="form-control">
+                    </div>
+                    <div class="form-group" >
+                    <input  formControlName="codigo_articulo" placeholder="Ingrese el codigo articulo " type="text" class="form-control">
+                    </div>
+                        <div class="form-group">
+                            <input formControlName="fecha_inicio" class="form-control" placeholder="ingrese fecha inicio: yyyy-mm-dd" type="date">
+                                <span *ngIf="formDesignacion">Ingrese la fecha de inicio   ↑</span>
+                            
+                        </div>
+                        <div class="form-group">
+                                <input formControlName="fecha_final" class="form-control" placeholder="ingrese fecha de finalizacion:" type="date">
+                                <span *ngIf="formDesignacion">Ingrese la fecha de finalizacion   ↑</span>     
+                            </div>
+                        
+                    <div class="form-group" >
+                    <input  formControlName="vuelta" placeholder="Ingrese la vuelta" type="text" class="form-control">
+                    </div>
+                    <div class="form-group" >
+                    <input  formControlName="listado" placeholder="Ingrese el listado " type="text" class="form-control">
+                    </div>
+                    <div class="form-group" >
+                    <input  formControlName="titulo" placeholder="Ingrese el titulo " type="text" class="form-control">
+                    </div>
+                </div>
+                    <div class="modal-footer">
+                        <button [disabled]="formDesignacion.invalid" class="btn btn-success" id="alerta">Guardar</button>
+                      </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+>>>>>>> 5f865d7344bc8ee543bc81079cac5ce044405e92
