@@ -68,7 +68,7 @@ export class Personas_acargoController
         let lean = await conexion();
 
         //busco un pogo de la tabla  a traves de un ID
-        let personas_acargo = await lean.query('select * from personas_acargo where id_pc = ?' ,[id_pc]);
+        let personas_acargo = await lean.query('select * from personas_acargo where id_docente = 35' ,[id_pc]);
 
         return res.json(personas_acargo[0]);
     }

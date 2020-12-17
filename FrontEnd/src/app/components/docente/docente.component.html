@@ -1,256 +1,278 @@
 <div class="container">
-<div class="jumbotron">
-    <h1 class="display-5">Docentes</h1>
-</div>
-<div class="row">
-    <div class="col-sm-12">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    <div class="jumbotron">
+        <h1 class="display-5">Docentes</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Nuevo docente
           </button>
-          <div class="col-sm-12">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <input placeholder="Buscar" [(ngModel)]="buscarDocente" type="text" class="form-control">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input placeholder="Buscar" [(ngModel)]="buscarDocente" type="text" class="form-control">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <table class="table table-striped">
-            <thead>
-                <tr class="table-primary">
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Fecha de nacimiento</th>
-                    <th>Legajo</th>
-                    <th>Legajo Recibo</th>
-                    <th>DNI</th>
-                    <th>CUIT</th>
-                    <th>Telefono</th>
-                    <th>Correo</th>
-                    <th>Domicilio</th>
-                    <th>Nacionalidad</th>
-                    <th>Sexo</th>
-                    <th>Lugar de nacimiento</th>
-                    <th>Fecha de Ingreso adm</th>
-                    <th>Estado Civil</th>
-                    <th>Conyuge</th>
-                    <th>Cuil de Conyuge</th>
-                    <th>Fecha de nacimiento Conyuge</th>
-                    <th>Familiar a cargo</th>
-                    <th>Operaciones</th>
+            <table class="table table-striped">
+                <thead>
+                    <tr class="table-primary">
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Fecha de nacimiento</th>
+                        <th>Legajo</th>
+                        <th>Legajo Recibo</th>
+                        <th>DNI</th>
+                        <th>CUIT</th>
+                        <th>Telefono</th>
+                        <th>Correo</th>
+                        <th>Domicilio</th>
+                        <th>Nacionalidad</th>
+                        <th>Sexo</th>
+                        <th>Lugar de nacimiento</th>
+                        <th>Fecha de Ingreso adm</th>
+                        <th>Estado Civil</th>
+                        <th>Conyuge</th>
+                        <th>Cuil de Conyuge</th>
+                        <th>Fecha de nacimiento Conyuge</th>
+                        <th>Familiar a cargo</th>
+                        <th>Operaciones</th>
 
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let docente of ListarDocente | filter:buscarDocente | paginate:{itemsPerPage:6, currentPage:p}">
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let docente of ListarDocente | filter:buscarDocente | paginate:{itemsPerPage:6, currentPage:p}">
 
-                    <td>{{docente.id_docente}}</td>
+                        <td>{{docente.id_docente}}</td>
 
-                    <td>{{docente.nombre}}</td>
+                        <td>{{docente.nombre}}</td>
 
-                    <td>{{docente.apellido}}</td>
+                        <td>{{docente.apellido}}</td>
 
-                    <td>{{docente.fn_formateada}}</td>
+                        <td>{{docente.fn_formateada}}</td>
 
-                    <td>{{docente.legajo}}</td>
+                        <td>{{docente.legajo}}</td>
 
-                    <td>{{docente.legajo_recibo}}</td>
+                        <td>{{docente.legajo_recibo}}</td>
 
-                    <td>{{docente.dni}}</td>
+                        <td>{{docente.dni}}</td>
 
-                    <td>{{docente.cuit}}</td>
+                        <td>{{docente.cuit}}</td>
 
-                    <td>{{docente.telefono}}</td>
+                        <td>{{docente.telefono}}</td>
 
-                    <td>{{docente.correo}}</td>
+                        <td>{{docente.correo}}</td>
 
-                    <td>{{docente.domicilio}}</td>
+                        <td>{{docente.domicilio}}</td>
 
-                    <td>{{docente.nacionalidad}}</td>
+                        <td>{{docente.nacionalidad}}</td>
 
-                    <td>
-                        <div *ngIf="docente.sexo=='Hombre'; else loggedOut">
-                            <h3><span class="badge badge-primary">Hombre</span></h3>
-                        </div>
-                          <ng-template #loggedOut>
-                            <h3><span class="badge badge-success">Mujer</span></h3>
-                          </ng-template>
-                    </td>
-
-                    <td>{{docente.lugar_de_nacimiento}}</td>
-
-                    <td>{{docente.fia_formateada}}</td>
-
-                    <td>
-                        <div *ngIf="docente.estado_civil==0; else loggedOut">
-                            <h3><span class="badge badge-primary">Soltero</span></h3>
-                        </div>
-                          <ng-template #loggedOut>
-                            <h3><span class="badge badge-success">Casado</span></h3>
-                          </ng-template>
-
-                    </td>
-
-                    <td>
-                        <div *ngIf="docente.conyuge==0; else loggedOut">
-                             <h3><span class="badge badge-primary">No</span></h3>
-                        </div>
+                        <td>
+                            <div *ngIf="docente.sexo=='Hombre'; else loggedOut">
+                                <h3><span class="badge badge-primary">Hombre</span></h3>
+                            </div>
                             <ng-template #loggedOut>
-                            <h3><span class="badge badge-success">{{docente.conyuge}</span></h3>
+                                <h3><span class="badge badge-success">Mujer</span></h3>
                             </ng-template>
-                    </td>
+                        </td>
 
-                    <td>{{docente.cuil_conyuge}}</td>
+                        <td>{{docente.lugar_de_nacimiento}}</td>
 
-                    <td>{{docente.fnc_formateada}}</td>
+                        <td>{{docente.fia_formateada}}</td>
 
-                    <td>
-                        <div *ngIf="docente.familiar_acargo==0; else loggedOut">
-                            <h3><span class="badge badge-primary">si</span></h3>
-                        </div>
-                           <ng-template #loggedOut>
-                           <h3><span class="badge badge-success">No</span></h3>
-                           </ng-template>
-                    </td>
-                    
-                    <td>
-                        <div class="btn-group btn-group-sm">
-                            <button (click)="eliminarDocente(docente.id_docente);" class="btn btn-danger">Eliminar</button>
-                            <button (click)="editarDocente(docente)" class="btn btn-primary">Editar</button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="row">
-            <div class="col-sm-4">
-                <pagination-controls (pageChange)="p =$event"></pagination-controls>
+                        <td>
+                            <div *ngIf="docente.estado_civil==0; else loggedOut1">
+                                <h3><span class="badge badge-primary">Soltero</span></h3>
+                            </div>
+                            <ng-template #loggedOut1>
+                                <h3><span class="badge badge-success">Casado</span></h3>
+                            </ng-template>
+
+                        </td>
+
+                        <td>
+                            <div *ngIf="docente.conyuge==0; else loggedOut2">
+                                <h3><span class="badge badge-primary">No</span></h3>
+                            </div>
+                            <ng-template #loggedOut2>
+                                <h3><span class="badge badge-success">{{docente.conyuge}}</span></h3>
+                            </ng-template>
+                        </td>
+
+                        <td>{{docente.cuil_conyuge}}</td>
+
+                        <td>{{docente.fnc_formateada}}</td>
+
+                        <td>
+                            <div *ngIf="docente.familiar_acargo==0; else loggedOut3">
+                                <h3><span class="badge badge-primary">si</span></h3>
+                            </div>
+                            <ng-template #loggedOut3>
+                                <h3><span class="badge badge-success">No</span></h3>
+                            </ng-template>
+                        </td>
+
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <button (click)="eliminarDocente(docente.id_docente);" class="btn btn-danger">Eliminar</button>
+                                <button (click)="editarDocente(docente)" class="btn btn-primary">Editar</button>
+                                <button (click)="obtenerIdDocente(docente.id_docente);" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalFamiliar">
+                                Agregar Familiar
+                              </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-sm-4">
+                    <pagination-controls (pageChange)="p =$event"></pagination-controls>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Nuevo Docente</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nuevo Docente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
-        <form [formGroup]="formDocente" (ngSubmit)="guardarDocente()">
-        <div class="modal-body">
+                </div>
+                <form [formGroup]="formDocente" (ngSubmit)="guardarDocente()">
+                    <div class="modal-body">
 
-                <div class="form-group">
-                    <input formControlName="id_docente" type="hidden" class="form-control">
-                </div>
+                        <div class="form-group">
+                            <input formControlName="id_docente" type="hidden" class="form-control">
+                        </div>
 
-                <div class="form-group">
-                    <input [ngClass]="{'is-invalid':(formDocente.get('nombre')?.touched || formDocente.get('nombre')?.dirty) && formDocente.get('nombre')?.invalid }" formControlName="nombre" placeholder="Ingrese el Nombre" type="text" class="form-control">
-                    <div class="invalid-feedback">
-                        <span *ngIf="formDocente.get('nombre').hasError('required')">Campo requerido</span>
-                        <span *ngIf="!formDocente.get('nombre').hasError('minLength')">Minimo 3 caracteres</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input  formControlName="apellido" placeholder="Ingrese el Apellido" type="text" class="form-control">
-                </div>
+                        <div class="form-group">
+                            <input [ngClass]="{'is-invalid':(formDocente.get('nombre')?.touched || formDocente.get('nombre')?.dirty) && formDocente.get('nombre')?.invalid }" formControlName="nombre" placeholder="Ingrese el Nombre" type="text" class="form-control">
+                            <div class="invalid-feedback">
+                                <span *ngIf="formDocente.get('nombre').hasError('required')">Campo requerido</span>
+                                <span *ngIf="!formDocente.get('nombre').hasError('minLength')">Minimo 3 caracteres</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="apellido" placeholder="Ingrese el Apellido" type="text" class="form-control">
+                        </div>
 
-                <div class="input-group">
-                    <input formControlName="fecha_nacimiento" class="form-control" placeholder="ingrese fecha inicio: yyyy-mm-dd" type="date">
-                    <div class="input-group-append">
+                        <div class="input-group">
+                            <input formControlName="fecha_nacimiento" class="form-control" placeholder="ingrese fecha inicio: yyyy-mm-dd" type="date">
+                            <div class="input-group-append">
 
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input formControlName="legajo" placeholder="Ingrese el Legajo" type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input formControlName="legajo_recibo" placeholder="Ingrese el Legajo recibo" type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input formControlName="dni" placeholder="Ingrese el DNI" type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input formControlName="cuit" placeholder="Ingrese el Cuit" type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input formControlName="telefono" placeholder="Ingrese el Telefono " type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input formControlName="correo" placeholder="Ingrese el Correo" type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input formControlName="domicilio" placeholder="Ingrese el Domicilio" type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input formControlName="nacionalidad" placeholder="Ingrese la Nacionalidad" type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input formControlName="sexo" placeholder="Ingrese el sexo" type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                    <select class="form-control" formControlName="lugar_de_nacimiento">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="legajo" placeholder="Ingrese el Legajo" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="legajo_recibo" placeholder="Ingrese el Legajo recibo" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="dni" placeholder="Ingrese el DNI" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="cuit" placeholder="Ingrese el Cuit" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="telefono" placeholder="Ingrese el Telefono " type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="correo" placeholder="Ingrese el Correo" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="domicilio" placeholder="Ingrese el Domicilio" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="nacionalidad" placeholder="Ingrese la Nacionalidad" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="sexo" placeholder="Ingrese el sexo" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" formControlName="lugar_de_nacimiento">
                     <option value="0" disabled selected>Seleccionar lugar de nacimiento</option>
                     <option *ngFor= "let localidad of listarLocalidad" value={{localidad.id_localidad}}>{{localidad.descripcion}}</option>
                     </select>
-                </div>
-                <div class="input-group">
-                    <input formControlName="fecha_ingreso_adm" class="form-control" placeholder="ingrese fecha inicio: yyyy-mm-dd" type="date">
-                    <div class="input-group-append">
+                        </div>
+                        <div class="input-group">
+                            <input formControlName="fecha_ingreso_adm" class="form-control" placeholder="ingrese fecha inicio: yyyy-mm-dd" type="date">
+                            <div class="input-group-append">
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="estado_civil" placeholder="Ingrese el estado civil" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="conyuge" placeholder="Ingrese el nombre de su conyuge" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="cuil_conyuge" placeholder="Ingrese su cuil de conyuge" type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <input formControlName="fecha_n_conyuge" class="form-control" placeholder="ingrese fecha inicio: yyyy-mm-dd" type="date">
+                            <div class="input-group-append">
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="familiar_acargo" placeholder="Ingrese familiar a cargo" type="text" class="form-control">
+                        </div>
 
                     </div>
-                </div>
-                <div class="form-group">
-                    <input formControlName="estado_civil" placeholder="Ingrese el estado civil" type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input formControlName="conyuge" placeholder="Ingrese el nombre de su conyuge" type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input formControlName="cuil_conyuge" placeholder="Ingrese su cuil de conyuge" type="text" class="form-control">
-                </div>
-                <div class="input-group">
-                    <input formControlName="fecha_n_conyuge" class="form-control" placeholder="ingrese fecha inicio: yyyy-mm-dd" type="date">
-                    <div class="input-group-append">
-
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button [disabled]="formDocente.invalid" class="btn btn-success" id="alerta">Guardar</button>
                     </div>
-                </div>
-                <div class="form-group">
-                    <input formControlName="familiar_acargo" placeholder="Ingrese familiar a cargo" type="text" class="form-control">
-                </div>
-                
+                </form>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button [disabled]="formDocente.invalid" class="btn btn-success" id="alerta">Guardar</button>
-        </div>
-    </form>
-      </div>
     </div>
-  </div>
-  <div id="footer" class="container-fluid" style="background-color: #7094c9;">
-    <div class="row">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-10">
-            <div class="row d-flex justify-content-between pt-3">
-                <div class="col-md-3 item-footer">
-                    <p>Paraguay 1050, R8324 Cipolletti, Río Negro <i class="fas fa-phone-alt pr-2" aria-hidden="true"></i> +54 9 299 478-3676</p>
-                </div>
-                <div class="col-md-6 item-footer">
-                    <p>Barrio Don Bosco<i class="fas fa-phone-alt pr-2" aria-hidden="true"></i></p>
-                </div>
-                <div class="col-md-3 item-footer">
-                    <a target="_blank" href="http://cet30.edu.ar/" style="color:inherit; ">
-                        <p>http://cet30.edu.ar/</p>
-                    </a>
+    <div id="footer" class="container-fluid" style="background-color: #7094c9;">
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+                <div class="row d-flex justify-content-between pt-3">
+                    <div class="col-md-3 item-footer">
+                        <p>Paraguay 1050, R8324 Cipolletti, Río Negro <i class="fas fa-phone-alt pr-2" aria-hidden="true"></i> +54 9 299 478-3676</p>
+                    </div>
+                    <div class="col-md-6 item-footer">
+                        <p>Barrio Don Bosco<i class="fas fa-phone-alt pr-2" aria-hidden="true"></i></p>
+                    </div>
+                    <div class="col-md-3 item-footer">
+                        <a target="_blank" href="http://cet30.edu.ar/" style="color:inherit; ">
+                            <p>http://cet30.edu.ar/</p>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
- </div>
 </div>
 
+<div class="modal fade" id="exampleModalFamiliar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="max-width:80%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Familiar a Cargo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <app-personas-a-cargo [id_docente]=""></app-personas-a-cargo>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

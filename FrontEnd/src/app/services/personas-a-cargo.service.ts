@@ -17,9 +17,9 @@ export class Personas_acargoService {
   }
 
 
-  getPersonas_acargo()
+  getPersonas_acargo(id_docente:number)
   {
-  return this.http.get<IPersonas_acargo[]>('http://localhost:3000/personas_acargo');
+  return this.http.get<IPersonas_acargo[]>('http://localhost:3000/personas_acargo/'+id_docente);
   }
 
   // tslint:disable-next-line: variable-name

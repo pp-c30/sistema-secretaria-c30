@@ -5,4 +5,5 @@ export interface IPersonas_acargo {
     dni:string;
     fecha_nacimiento:Date;
     familiar_acargo:string;
+    id_docente:number;
 }

@@ -56,7 +56,7 @@ class Personas_acargoController {
             //nos conectamos a la base de datos
             let lean = yield database_1.conexion();
             //busco un pogo de la tabla  a traves de un ID
-            let personas_acargo = yield lean.query('select * from personas_acargo where id_pc = ?', [id_pc]);
+            let personas_acargo = yield lean.query('select * from personas_acargo where id_docente = 35', [id_pc]);
             return res.json(personas_acargo[0]);
         });
     }

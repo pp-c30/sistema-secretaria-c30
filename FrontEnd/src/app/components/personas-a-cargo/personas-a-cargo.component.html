@@ -1,132 +1,134 @@
 <div class="container">
-<div class="jumbotron">
-    <h1 class="display-5">Personas a Cargo</h1>
-    <hr class="my-3">
-</div>
+    <div class="jumbotron">
+        <h1 class="display-5">Personas a Cargo</h1>
+        <hr class="my-3">
+    </div>
 
-<div class="row">
-    <div class="col-sm-8">
+    <div class="row">
+        <div class="col-sm-8">
 
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <input placeholder="Ingrese criterio de Búsqueda" [(ngModel)]="buscarPersonas_acargo" type="text" class="form-control">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <input placeholder="Ingrese criterio de Búsqueda" [(ngModel)]="buscarPersonas_acargo" type="text" class="form-control">
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <table class="table table-Primary">
-            <thead>
-                <tr class="table-primary">
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Dni</th>
-                    <th>Fecha Nacimiento</th>
-                    <th>Familiar a Cargo</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <br>
-            <tbody>
-                <tr *ngFor="let personas_acargo of listarPersonas_acargo | filter:buscarPersonas_acargo | paginate:{itemsPerPage:3, currentPage: p}">
+            <table class="table table-Primary">
+                <thead>
+                    <tr class="table-primary">
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Dni</th>
+                        <th>Fecha Nacimiento</th>
+                        <th>Familiar a Cargo</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <br>
+                <tbody>
+                    <tr *ngFor="let personas_acargo of listarPersonas_acargo | filter:buscarPersonas_acargo | paginate:{itemsPerPage:3, currentPage: p}">
 
-                    <td>{{personas_acargo.nombre}}</td>
+                        <td>{{personas_acargo.nombre}}</td>
 
-                    <td>{{personas_acargo.apellido}}</td>
+                        <td>{{personas_acargo.apellido}}</td>
 
-                    <td>{{personas_acargo.dni}}</td>
+                        <td>{{personas_acargo.dni}}</td>
 
-                    <td>{{personas_acargo.fecha_nacimiento}}</td>
+                        <td>{{personas_acargo.fecha_nacimiento}}</td>
 
-                    <td>{{personas_acargo.familiar_acargo}}</td>
+                        <td>{{personas_acargo.familiar_acargo}}</td>
 
-                    <div class="btn-group btn-group-sm">
+                        <div class="btn-group btn-group-sm">
 
-                        <button (click)="eliminarPersonas_acargo(personas_acargo.id_pc);" class="btn btn-outline-success my-2 my-sm-0" type="trash">
+                            <button (click)="eliminarPersonas_acargo(personas_acargo.id_pc);" class="btn btn-outline-success my-2 my-sm-0" type="trash">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
                               </svg>
                         </button>
 
-                        <button (click)="editarPersonas_acargo(personas_acargo)" class="btn btn-outline-success my-2 my-sm-0">
+                            <button (click)="editarPersonas_acargo(personas_acargo)" class="btn btn-outline-success my-2 my-sm-0">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pen-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M13.498.795l.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"/>
                               </svg>
                         </button>
-                    </div>
-                </tr>
-            </tbody>
-        </table>
-        <div class="row">
-            <div class="col-sm-4">
-                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-sm-4">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-sm-4">
-        <div class="card">
-            <div class="card-header">Formulario de Personas a Cargo</div>
-            <div class="card-body">
-                <form [formGroup]="formPersonas_acargo" (ngSubmit)="guardarPersonas_acargo()">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">Formulario de Personas a Cargo</div>
+                <div class="card-body">
+                    <form [formGroup]="formPersonas_acargo" (ngSubmit)="guardarPersonas_acargo()">
 
-                    <input formControlName="id_pc" type="hidden">
+                        <input formControlName="id_docente" type="number">
 
-                    <div class="form-group">
-                        <input formControlName="nombre" placeholder="Ingrese el Nombre" type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input formControlName="apellido" placeholder="Ingrese el Apellido" type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input formControlName="dni" placeholder="Ingrese el DNI" type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input formControlName="fecha_nacimiento" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker">
-                            <div class="input-group-append">
-                                <button class="btn btn-white" (click)="d.toggle()" type="button">
+                        <input formControlName="id_pc" type="hidden">
+
+                        <div class="form-group">
+                            <input formControlName="nombre" placeholder="Ingrese el Nombre" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="apellido" placeholder="Ingrese el Apellido" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="dni" placeholder="Ingrese el DNI" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input formControlName="fecha_nacimiento" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker">
+                                <div class="input-group-append">
+                                    <button class="btn btn-white" (click)="d.toggle()" type="button">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
                                       </svg>
                                 </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <input formControlName="familiar_acargo" placeholder="Ingrese el Familiar a Cargo" type="text" class="form-control">
-                    </div>
+                        <div class="form-group">
+                            <input formControlName="familiar_acargo" placeholder="Ingrese el Familiar a Cargo" type="text" class="form-control">
+                        </div>
 
-                    <button class="btn btn-outline-success my-2 my-sm-0" id="alerta">
+                        <button class="btn btn-outline-success my-2 my-sm-0" id="alerta">
                         Guardar
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-archive-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/>
                           </svg>
                     </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="footer" class="container-fluid" style="background-color: #7094c9;">
-    <div class="row">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-10">
-            <div class="row d-flex justify-content-between pt-3">
-                <div class="col-md-3 item-footer">
-                    <p>Paraguay 1050, R8324 Cipolletti, Río Negro <i class="fas fa-phone-alt pr-2" aria-hidden="true"></i> +54 9 299 478-3676</p>
-                </div>
-                <div class="col-md-6 item-footer">
-                    <p>Barrio Don Bosco<i class="fas fa-phone-alt pr-2" aria-hidden="true"></i></p>
-                </div>
-                <div class="col-md-3 item-footer">
-                    <a target="_blank" href="http://cet30.edu.ar/" style="color:inherit; ">
-                        <p>http://cet30.edu.ar/</p>
-                    </a>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
- </div>
+    <div id="footer" class="container-fluid" style="background-color: #7094c9;">
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+                <div class="row d-flex justify-content-between pt-3">
+                    <div class="col-md-3 item-footer">
+                        <p>Paraguay 1050, R8324 Cipolletti, Río Negro <i class="fas fa-phone-alt pr-2" aria-hidden="true"></i> +54 9 299 478-3676</p>
+                    </div>
+                    <div class="col-md-6 item-footer">
+                        <p>Barrio Don Bosco<i class="fas fa-phone-alt pr-2" aria-hidden="true"></i></p>
+                    </div>
+                    <div class="col-md-3 item-footer">
+                        <a target="_blank" href="http://cet30.edu.ar/" style="color:inherit; ">
+                            <p>http://cet30.edu.ar/</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
