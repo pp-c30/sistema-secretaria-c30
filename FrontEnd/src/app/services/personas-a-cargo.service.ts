@@ -25,12 +25,15 @@ export class Personas_acargoService {
   // tslint:disable-next-line: variable-name
   savePersonas_acargo(unaPersonas_acargo: IPersonas_acargo)
 {
+    unaPersonas_acargo.fecha_nacimiento = unaPersonas_acargo.fecha_nacimiento.year +'-'+ unaPersonas_acargo.fecha_nacimiento.month +'-'+ unaPersonas_acargo.fecha_nacimiento.day;
+
     return this.http.post('http://localhost:3000/personas_acargo', unaPersonas_acargo);
 }
 // tslint:disable-next-line: variable-name
 updatePersonas_acargo(unaPersonas_acargo: IPersonas_acargo)
 {
   const id: number = unaPersonas_acargo.id_pc;
+  unaPersonas_acargo.fecha_nacimiento = unaPersonas_acargo.fecha_nacimiento.year +'-'+ unaPersonas_acargo.fecha_nacimiento.month +'-'+ unaPersonas_acargo.fecha_nacimiento.day;
   return this.http.put('http://localhost:3000/personas_acargo/' + id, unaPersonas_acargo);
 }
 deletePersonas_acargo(id: number)

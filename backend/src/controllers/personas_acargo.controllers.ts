@@ -20,7 +20,7 @@ export class Personas_acargoController
         //realizo el INSERT de la persona a cargoS
         await lean.query('insert into personas_acargo set ?', [personas_acargo]);
     
-        return res.json('El cargo fue creado');
+        res.json('El cargo fue creado');
     }
 
     public async actualizarPersonas_acargo(req:Request, res:Response){
@@ -34,7 +34,7 @@ export class Personas_acargoController
 
         await con.query('update personas_acargo set ? where id_docente= ?', [IPersonas_acargo, id_pc]);
 
-        return res.json('Las personas a cargo se actualizo exitosamente');
+        res.json('Las personas a cargo se actualizo exitosamente');
     }
 
     public async eliminarPersonas_acargo(req:Request,res:Response)

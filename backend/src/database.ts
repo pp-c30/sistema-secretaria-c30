@@ -5,7 +5,7 @@ export async function conexion()
         host : 'localhost',
         user : 'root',
         password : '',
-        database : 'secretaria'
+        database : 'secretaria_2'
     });
     return conect;
 }
