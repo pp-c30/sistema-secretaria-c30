@@ -12,7 +12,7 @@ export class DocenteController
         //conecto con la base
         const con = await conexion();
 
-        let docente = await con.query('select *,  date_format(fecha_nacimiento, "%d/%m/%Y") as fn_formateada,date_format(fecha_ingreso_adm, "%d/%m/%Y") as fia_formateada,date_format(fecha_n_conyuge, "%d/%m/%Y") as fnc_formateada,(select descripcion from localidad where id_localidad = d.localidad) as localidad  from docente d ');
+        let docente = await con.query('select *, date_format(fecha_nacimiento, "%d/%m/%Y") as fn_formateada,date_format(fecha_ingreso_adm, "%d/%m/%Y") as fia_formateada,date_format(fecha_n_conyuge, "%d/%m/%Y") as fnc_formateada from docente ');
 
         return res.json(docente[0]);
 
