@@ -22,7 +22,7 @@ export class DesignacionComponent implements OnInit {
   constructor(private designacionServ:DesignacionService, private fb: FormBuilder, private asignaturaServ:AsignaturaService, private docenteServ:DocenteService) {
     this.formDesignacion = this.fb.group({
 
-      id_designacion:[''],
+      id_designacion:[null],
       id_docente:[null,[Validators.required]],
       id_asignatura:['',[Validators.required]],
       fecha_designacion:['',[Validators.required]],
