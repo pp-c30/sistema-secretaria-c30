@@ -1,132 +1,132 @@
 <div class="container">
-<div class="jumbotron">
-    <h1 class="display-5">Liciencias</h1>
-    <hr class="my-3">
-</div>
-<div class="row">
-    <div class="col-sm-8">
-        <table class="table table-striped">
-            <thead>
-                <tr class="table-primary">
-                    <th>Id</th>
-                    <th>ID Docente</th>
-                    <th>Licencia desde</th>
-                    <th>ID asignatura</th>
-                    <th>ID docente suplente</th>
-                    <th>N° de Resolucion</th>
-                    <th>Fecha alta suplente</th>
-                    <th>Fecha baja suplente</th>
-                    <th>Estado licencia</th>
-                    <th>Operaciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let licencia of ListarLicencia">
+    <div class="jumbotron">
+        <h1 class="display-5">Liciencias</h1>
+        <hr class="my-3">
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <table class="table table-striped">
+                <thead>
+                    <tr class="table-primary">
+                        <th>Id</th>
+                        <th>ID Docente</th>
+                        <th>Licencia desde</th>
+                        <th>ID asignatura</th>
+                        <th>ID docente suplente</th>
+                        <th>N° de Resolucion</th>
+                        <th>Fecha alta suplente</th>
+                        <th>Fecha baja suplente</th>
+                        <th>Estado licencia</th>
+                        <th>Operaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let licencia of ListarLicencia">
 
-                    <td>{{licencia.id_licencia}}</td>
+                        <td>{{licencia.id_licencia}}</td>
 
-                    <td>{{licencia.id_docente}}</td>
+                        <td>{{licencia.id_docente}}</td>
 
-                    <td>{{licencia.l_formateada}}</td>
+                        <td>{{licencia.l_formateada}}</td>
 
-                    <td>{{licencia.id_asignatura}}</td>
+                        <td>{{licencia.id_asignatura}}</td>
 
-                    <td>{{licencia.id_docente_suplente}}</td>
+                        <td>{{licencia.id_docente_suplente}}</td>
 
-                    <td>{{licencia.n_resolucion}}</td>
+                        <td>{{licencia.n_resolucion}}</td>
 
-                    <td>{{licencia.fas_formateada}}</td>
+                        <td>{{licencia.fas_formateada}}</td>
 
-                    <td>{{licencia.fbs_formateada}}</td>
+                        <td>{{licencia.fbs_formateada}}</td>
 
-                    <td>{{licencia.estado_licencia}}</td>
+                        <td>{{licencia.estado_licencia}}</td>
 
-                    <td>
-                        <div class="btn-group btn-group-sm">
-                            <button (click)="eliminarLicencia(licencia.id_licencia);" class="btn btn-danger">Eliminar</button>
-                            <button (click)="editarLicencia(licencia)" class="btn btn-primary">Editar</button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="row">
-            <div class="col-sm-4">
-                <pagination-controls (pageChange)="p =$event"></pagination-controls>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <button (click)="eliminarLicencia(licencia.id_licencia);" class="btn btn-danger">Eliminar</button>
+                                <button (click)="editarLicencia(licencia)" class="btn btn-primary">Editar</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-sm-4">
+                    <pagination-controls (pageChange)="p =$event"></pagination-controls>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">Formulario de licencia</div>
+                    <div class="card-body">
+                        <form [formGroup]="formLicencia" (ngSubmit)="guardarLicencia()">
+
+
+                            <div class="form-group">
+                                <input formControlName="id_docente" placeholder="Ingrese ID docente" type="text" class="form-control">
+                            </div>
+
+                            <div class="input-group">
+                                <input formControlName="licencia_desde" class="form-control" placeholder="ingrese fecha inicio: yyyy-mm-dd" type="date">
+                                <div class="input-group-append">
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input formControlName="id_asignatura" placeholder="Ingrese ID asignatura" type="text" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <input formControlName="id_docente_suplente" placeholder="Ingrese ID docente suplente" type="text" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <input formControlName="n_resolucion" placeholder="Ingrese N° de resolucion" type="text" class="form-control">
+                            </div>
+
+                            <div class="input-group">
+                                <input formControlName="fecha_alta" class="form-control" placeholder="ingrese fecha alta: yyyy-mm-dd" type="date">
+                                <div class="input-group-append">
+
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <input formControlName="fecha_baja_suplente" class="form-control" placeholder="ingrese fecha baja: yyyy-mm-dd" type="date">
+                                <div class="input-group-append">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input formControlName="estado_licencia" placeholder="Ingrese estado licencia" type="text" class="form-control">
+                            </div>
+
+                            <button class="btn btn-success" id="alerta">Guardar</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-header">Formulario de licencia</div>
-                <div class="card-body">
-                    <form [formGroup]="formLicencia" (ngSubmit)="guardarLicencia()">
-
-
-                        <div class="form-group">
-                            <input formControlName="id_docente" placeholder="Ingrese ID docente" type="text" class="form-control">
+        <div id="footer" class="container-fluid" style="background-color: #7094c9;">
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <div class="row d-flex justify-content-between pt-3">
+                        <div class="col-md-3 item-footer">
+                            <p>Paraguay 1050, R8324 Cipolletti, Río Negro <i class="fas fa-phone-alt pr-2" aria-hidden="true"></i> +54 9 299 478-3676</p>
                         </div>
-
-                        <div class="input-group">
-                            <input formControlName="licencia_desde" class="form-control" placeholder="ingrese fecha inicio: yyyy-mm-dd" type="date">
-                            <div class="input-group-append">
-
-                            </div>
+                        <div class="col-md-6 item-footer">
+                            <p>Barrio Don Bosco<i class="fas fa-phone-alt pr-2" aria-hidden="true"></i></p>
                         </div>
-
-                        <div class="form-group">
-                            <input formControlName="id_asignatura" placeholder="Ingrese ID asignatura" type="text" class="form-control">
+                        <div class="col-md-3 item-footer">
+                            <a target="_blank" href="http://cet30.edu.ar/" style="color:inherit; ">
+                                <p>http://cet30.edu.ar/</p>
+                            </a>
                         </div>
-
-                        <div class="form-group">
-                            <input formControlName="id_docente_suplente" placeholder="Ingrese ID docente suplente" type="text" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <input formControlName="n_resolucion" placeholder="Ingrese N° de resolucion" type="text" class="form-control">
-                        </div>
-
-                        <div class="input-group">
-                            <input formControlName="fecha_alta" class="form-control" placeholder="ingrese fecha alta: yyyy-mm-dd" type="date">
-                            <div class="input-group-append">
-
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <input formControlName="fecha_baja_suplente" class="form-control" placeholder="ingrese fecha baja: yyyy-mm-dd" type="date">
-                            <div class="input-group-append">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <input formControlName="estado_licencia" placeholder="Ingrese estado licencia" type="text" class="form-control">
-                        </div>
-
-                        <button class="btn btn-success" id="alerta">Guardar</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div id="footer" class="container-fluid" style="background-color: #7094c9;">
-        <div class="row">
-            <div class="col-md-1">
-            </div>
-            <div class="col-md-10">
-                <div class="row d-flex justify-content-between pt-3">
-                    <div class="col-md-3 item-footer">
-                        <p>Paraguay 1050, R8324 Cipolletti, Río Negro <i class="fas fa-phone-alt pr-2" aria-hidden="true"></i> +54 9 299 478-3676</p>
-                    </div>
-                    <div class="col-md-6 item-footer">
-                        <p>Barrio Don Bosco<i class="fas fa-phone-alt pr-2" aria-hidden="true"></i></p>
-                    </div>
-                    <div class="col-md-3 item-footer">
-                        <a target="_blank" href="http://cet30.edu.ar/" style="color:inherit; ">
-                            <p>http://cet30.edu.ar/</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-     </div>
-</div>
